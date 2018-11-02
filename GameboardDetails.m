@@ -4,15 +4,15 @@ clc
 figure('WindowStyle', 'modal'); 
 Gboard = cell(20,30);
 grass = imread('grass_texture.png');
-for r = 1 :20
-    for c = 1:30
+for r = 1 :10
+    for c = 1:15
     Gboard{r,c} = grass;
     end
 end
 player = imread('grass_texturetemp.png');
 Gboard{5, 5} = player;
-h= imshow([Gboard{1,:};Gboard{2,:};Gboard{3,:};Gboard{4,:};Gboard{5,:};Gboard{6,:};Gboard{7,:};Gboard{8,:};Gboard{9,:};Gboard{10,:};...
-    Gboard{11,:};Gboard{12,:};Gboard{13,:};Gboard{14,:};Gboard{15,:};Gboard{16,:};Gboard{17,:};Gboard{18,:};Gboard{19,:};Gboard{20,:}])
+map = imshow([Gboard{1,:};Gboard{2,:};Gboard{3,:};Gboard{4,:};Gboard{5,:};Gboard{6,:};Gboard{7,:};Gboard{8,:};Gboard{9,:};Gboard{10,:};...
+    Gboard{11,:};Gboard{12,:};Gboard{13,:};Gboard{14,:};Gboard{15,:}])
 % imshow([Gboard{1,:};Gboard{2,:};Gboard{3,:};Gboard{4,:};Gboard{5,:};Gboard{6,:};Gboard{7,:};Gboard{8,:};Gboard{9,:};Gboard{10,:};...
 %     Gboard{11,:};Gboard{12,:};Gboard{13,:};Gboard{14,:};Gboard{15,:};Gboard{16,:};Gboard{17,:};Gboard{18,:};Gboard{19,:};Gboard{20,:};...
 %     Gboard{21,:};Gboard{22,:};Gboard{23,:};Gboard{24,:};Gboard{25,:};Gboard{26,:};Gboard{27,:};Gboard{28,:};Gboard{29,:};Gboard{30,:};...
@@ -24,8 +24,3 @@ h= imshow([Gboard{1,:};Gboard{2,:};Gboard{3,:};Gboard{4,:};Gboard{5,:};Gboard{6,
 %     Gboard{81,:};Gboard{82,:};Gboard{83,:};Gboard{84,:};Gboard{85,:};Gboard{86,:};Gboard{87,:};Gboard{88,:};Gboard{89,:};Gboard{90,:};...
 %     Gboard{91,:};Gboard{92,:};Gboard{93,:};Gboard{94,:};Gboard{95,:};Gboard{96,:};Gboard{97,:};Gboard{98,:};Gboard{99,:};Gboard{100,:};...
 %     ]);
-% for (r = 1: 10)
-%     imshow([Gboard{i}}; helpMe(i+1)]
-% 
-%     
-% %%imshow([r]; functio
