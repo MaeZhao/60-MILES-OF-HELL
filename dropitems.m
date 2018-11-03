@@ -10,7 +10,15 @@ switch level
        itemListW= itemListW3
        itemListF=  itemListF3
 end
-drrow = randi(1,100
+
+drow = randi(1,100)
+dcol = randi(1,100)
+Mboard(drow,dcol) = itemListW
+
+drow = randi(1,100)
+dcol = randi(1,100)
+Mboard(drow,dcol) = itemListf
+
 end
 
        
