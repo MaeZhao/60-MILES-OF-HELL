@@ -18,8 +18,8 @@ if gamestart == true
     player = imread('All_Sprites_PNG\temp_chick.png');
     Gboard{10, 1} = player;
 %% Place NPC's
-
-Gboard = placeNPC(Gboard)
+% test with default NPC NEEDS A CHECKER
+defaultNPC = imread('All_Sprites_PNG\default_mon.png');
+Gboard = placeNPC(Gboard,defaultNPC, 10);
 end
-
 loadGB(Gboard);

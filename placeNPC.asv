@@ -1,6 +1,6 @@
 function Gboard = placeNPC(board, NPCtype, npcFreq)
-%PLACENPC places the NPC randomly
-%   WE NEED A CHECKER THAT MAKES SURE THAT NO ONE SPOT IS OVERLOADED
+%PLACENPC places the NPC randomly WE NEED A 
+%   Detailed explanation goes here
 while npcFreq > 0 %WE NEED A CHECKER TO CHECK FOR OVERLAP
     nrow = randi([1 10]);
     ncol = randi([1 15]);
