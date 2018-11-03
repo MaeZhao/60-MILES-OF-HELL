@@ -9,7 +9,7 @@ for r = 1 :10
     Gboard{r,c} = grass;
     end
 end
-player = imread('grass_texturetemp.png');
+player = imread('tempchick.png');
 Gboard{5, 5} = player;
 map = imshow([Gboard{1,:};Gboard{2,:};Gboard{3,:};Gboard{4,:};Gboard{5,:};Gboard{6,:};Gboard{7,:};Gboard{8,:};Gboard{9,:};Gboard{10,:};...
     Gboard{11,:};Gboard{12,:};Gboard{13,:};Gboard{14,:};Gboard{15,:}])
