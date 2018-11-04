@@ -12,13 +12,8 @@ end
 
 % temporary because we do not have individual png pictures for all items
 tempItemListW = itemListW;
-for h=1:size(itemListW)
-    tempitemListW(h) = imread('\All_Sprites_PNG\no_texture.png');
-end
-% temporary because we do not have individual png pictures for all food
-tempItemListF = itemListF;
-for i=1:size(itemListF)
-    tempitemListF(i) = imread('\All_Sprites_PNG\no_texture.png');
+for i=1:size(itemListW)
+    tempitemListW(i) = imread('\All_Sprites_PNG\no_texture.png');
 end
 
 for i=1:size(itemListW)
@@ -26,14 +21,13 @@ for i=1:size(itemListW)
 drow = randi(100)
 dcol = randi(100)
 Mboard(drow, dcol) = itemListW(i)
-Gboard = tempitemListW(i)
+Gboard = itemListW(i)
 
 
 for i=1:size(itemListF)
 drow = randi(1,100)
 dcol = randi(1,100)
 Mboard(drow,dcol) = itemListF(i)
-Gboard = tempitemListF(i)
 end
 end
 
