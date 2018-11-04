@@ -31,19 +31,23 @@ end
 % if see 'r' then bearSpray
 % if see 'a' then scrapMetal
 Mboard = zeros(10,15);
-%% Place Player
 if gamestart == true
+%% Place Player
 player = imread('All_Sprites_PNG\temp_chick.png');
     Gboard{10, 1} = player;
     %playerID = sum(double('player'));
     Mboard = InputMBoard('player', 10, 1, Mboard);
     
 %% Place NPC's
-% test with default NPC NEEDS A CHECKER
+% test with default
 % (mboard, gboard, NPCname, NPCtype, npcFreq)
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
 [Gboard, Mboard]= placeNPC(Mboard,Gboard,'NPC',defaultNPC, 10);
-%% Checks if Player is in finalbloc
+%% Place Foods
+% test with default
+defaultFood = imread('All_Sprites_PNG\default_food.png');
+
+%% Place finalbloc
 %(itemName, row, col, board)
 finalbloc = imread('All_Sprites_PNG\no_texture.png');
 Gboard{1,15} = finalbloc;
