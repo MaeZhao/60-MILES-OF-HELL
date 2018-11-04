@@ -1,12 +1,29 @@
-function [functional, Mboard]= InputMBoard(itemName, row, col, board)
+function Mboard = InputMBoard(itemName, row, col, board)
 %INPUTMBOARD  will be called whenever someone needs to add a item placed on
 %Mboard
-itemID = str2double(itemName);
+% if see '0' then nothing is placed there
+% if see 'm' then monster is placed there
+% if see 'p' then player is placed there
+% if see 'a' then apple
+% if see 'b' then blueberries
+% if see 'c' then cannedFood
+% if see 'd' then deadBird 
+% if see 't' then catTail
+% if see 'f' then funnyGuy
+% if see 'g' then grass
+% if see 'k' then keys
+% if see 'l' then metalLidd
+% if see 'W' then murkyWatah
+% if see 'p' then phoneflash
+% if see 'n' then spikeNut
+% if see 's' then stick
+% if see 'r' then bearSpray
+% if see 'a' then scrapMetal
 if board{row, col} == 0
-Mboard{row, col} = itemID;
-functional = true;
-else
-functional = false;
+    switch itemName
+        case
+            board{row, col} = ;
+board{row, col} = itemID;
 Mboard = board;
 end
 
