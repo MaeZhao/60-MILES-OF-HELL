@@ -10,6 +10,27 @@ for r = 1 :10
     Gboard{r,c} = grass;
     end
 end
+% Creates the Mboard
+% help us 'see' what is on the board
+% if see '0' then nothing is placed there
+% if see 'm' then monster is placed there
+% if see 'p' then player is placed there
+% if see 'a' then apple
+% if see 'b' then blueberries
+% if see 'c' then cannedFood
+% if see 'd' then deadBird 
+% if see 't' then catTail
+% if see 'f' then funnyGuy
+% if see 'g' then grass
+% if see 'k' then keys
+% if see 'l' then metalLid
+% if see 'W' then murkyWatah
+% if see 'p' then phoneflash
+% if see 'n' then spikeNut
+% if see 's' then stick
+% if see 'r' then bearSpray
+% if see 'a' then scrapMetal
+Mboard = zeros(10,15);
 %% Place Player
 if gamestart == true
     player = imread('All_Sprites_PNG\temp_chick.png');
