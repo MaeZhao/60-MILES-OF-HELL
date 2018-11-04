@@ -35,8 +35,8 @@ Mboard = zeros(10,15);
 if gamestart == true
     player = imread('All_Sprites_PNG\temp_chick.png');
     Gboard{10, 1} = player;
-    rep = true;
-    [rep, Mboard] = InputMBoard(player, 10, 1, Mboard);
+    %Mboard = InputMBoard(player, 10, 1, Mboard);
+    Mboard{10,1} = str2double(player);
 %% Place NPC's
 % test with default NPC NEEDS A CHECKER
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
