@@ -42,7 +42,7 @@ player = imread('All_Sprites_PNG\temp_chick.png');
 % test with default
 % (mboard, gboard, NPCname, NPCtype, npcFreq)
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
-[Gboard, Mboard]= placeNPC(Mboard,Gboard,'NPC',defaultNPC, 10);
+[Gboard, Mboard]= placeItem(Mboard,Gboard,'NPC',defaultNPC, 10);
 %% Place Foods
 % test with default
 defaultFood = imread('All_Sprites_PNG\default_food.png');
