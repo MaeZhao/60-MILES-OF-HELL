@@ -44,7 +44,9 @@ player = imread('All_Sprites_PNG\temp_chick.png');
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
 [Gboard, Mboard]= placeNPC(Mboard,Gboard,'NPC',defaultNPC, 10);
 %% Checks if Player is in finalbloc
+%(itemName, row, col, board)
 finalbloc = imread('All_Sprites_PNG\no_texture.png');
 Gboard{1,15} = finalbloc;
+Mboard = InputMBoard('finalbloc', 1, 15, Mboard);
 end
 loadGB(Gboard);
