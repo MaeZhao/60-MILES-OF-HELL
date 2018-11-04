@@ -43,10 +43,19 @@ player = imread('All_Sprites_PNG\temp_chick.png');
 % (mboard, gboard, NPCname, NPCtype, npcFreq)
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
 [Gboard, Mboard]= placeItem(Mboard,Gboard,'NPC',defaultNPC, 10);
-%% Place Foods
+%% Place Foods and Weapons
 % test with default
-defaultFood = imread('All_Sprites_PNG\default_food.png');
-
+if level ==1 
+          itemW = itemListW1
+          itemF=  itemListF1
+elseif level == 2
+        itemW= itemListW2
+        itemF= itemListF2
+elseif level == 3
+       itemW= itemListW3
+       itemF=  itemListF3
+end
+[Mboard, Gboard] = dropitems(itemW, itemF, Mboard, Gboard)
 %% Place finalbloc
 %(itemName, row, col, board)
 finalbloc = imread('All_Sprites_PNG\no_texture.png');
@@ -54,3 +63,4 @@ Gboard{1,15} = finalbloc;
 Mboard = InputMBoard('finalbloc', 1, 15, Mboard);
 end
 loadGB(Gboard);
+PlayerMovement

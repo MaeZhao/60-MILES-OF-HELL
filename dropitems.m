@@ -1,42 +1,23 @@
-function [Mboard, Gboard] = dropitems(level, itemW, itemF, Mboard)
-if level ==1 
-          itemListW = itemListW1
-          itemListF=  itemListF1
-elseif level == 2
-        itemListW= itemListW2
-        itemListF= itemListF2
-elseif level == 3
-       itemListW= itemListW3
-       itemListF=  itemListF3
-end
-
+function [Mboard, Gboard] = dropitems(itemW, itemF, mboard, gboard)
 % temporary because we do not have individual png pictures for all items
-tempItemListW = itemListW;
-for h=1:size(itemListW)
-    tempitemListW(h) = imread('\All_Sprites_PNG\no_texture.png');
+tempitemListW = cell(1, size(itemW,2))
+for h=1:length(itemW)
+    % itemID
+    tempitemListW{h} = imread('All_Sprites_PNG\default_weapon.png');
 end
 % temporary because we do not have individual png pictures for all food
-tempItemListF = itemListF;
-for i=1:size(itemListF)
-    tempitemListF(i) = imread('\All_Sprites_PNG\no_texture.png');
+tempitemListF = cell(1, size(itemF,2))
+for n=1:length(itemF)
+    tempitemListF{n} = imread('All_Sprites_PNG\default_food.png');
 end
-
-for i=1:size(itemListW)
-
-drow = randi(100)
-dcol = randi(100)
-Mboard(drow, dcol) = itemListW(i)
-Gboard = tempitemListW(i)
-
-
-for i=1:size(itemListF)
-drow = randi(1,100)
-dcol = randi(1,100)
-Mboard(drow,dcol) = itemListF(i)
-Gboard = tempitemListF(i)
+for i=1:length(itemW)
+[gboard, mboard]= placeItem(mboard,gboard,itemW(i),tempitemListW{i}, 1);
 end
+for g=1:length(itemF)
+[gboard, mboard]= placeItem(mboard,gboard,itemF(g),tempitemListF{g}, 1);
 end
-
+Gboard = gboard;
+Mboard = mboard;
 end
 
        

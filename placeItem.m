@@ -8,7 +8,7 @@ for i = 1: Itemfreq %WE NEED A CHECKER TO CHECK FOR OVERLAP
         nrow = randi([1 10]);
         ncol = randi([1 15]);
     end
-    gboard{nrow,ncol} = Itemtype;
+    gboard{nrow,ncol}= Itemtype;
     mboard = InputMBoard(Itemname, nrow, ncol, mboard);
 end
 Mboard = mboard;

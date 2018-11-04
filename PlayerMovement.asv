@@ -15,7 +15,7 @@ for i = 1: pspace
 %     2. A menu that pulls up when player interacts with food
 %     3. a menu that pulls up when player interacts with enemies
 %     4. a menu that pulls up when player inreacts with weapons
-%     5. detect when the player should level up
+
     switch move
         case 'uparrow'
             prow = prow-1
