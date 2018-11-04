@@ -1,9 +1,6 @@
 %% Initializing GBoard variables
-clear
-clc
 load WeaponsFoodIni.mat;
 figure('WindowStyle', 'modal'); 
-gamestart = true;
 level = 1;
 % Creates the board
 grass = imread('All_Sprites_PNG\grass_texture.png');
@@ -21,5 +18,8 @@ if gamestart == true
 % test with default NPC NEEDS A CHECKER
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
 Gboard = placeNPC(Gboard,defaultNPC, 10);
+%% Checks if Player is in finalbloc
+ finalbloc = imread('All_Sprites_PNG\no_texture.png');
+Gboard{1,15} = finalbloc;
 end
 loadGB(Gboard);
