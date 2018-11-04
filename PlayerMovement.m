@@ -12,9 +12,11 @@ for i = 1: pspace
     oldposition = Pposition
     % needs error check that makes sure that 
 %     1. player stays within the map
-%     2. A menu that pulls up when player interacts with food
-%     3. More work needs to be done with  enemies (see Fightscn)
-                %-> Also an player inventory
+%     2. A menu that pulls up when player interacts with  (see Fightscrn
+%     for an example of how to do it)
+%           -> Also an player items inventory
+%     3. More work needs to be done with  enemies (see Fightscrn)
+                %-> Also an player weapons inventory
 %     4. a menu that pulls up when player inreacts with weapons
 %     5. detect when the player should level up
 % TEMPORARY: UNTIL INVENTORY IS MADE
