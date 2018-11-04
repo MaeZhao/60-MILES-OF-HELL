@@ -40,7 +40,7 @@ if gamestart == true
 %% Place NPC's
 % test with default NPC NEEDS A CHECKER
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
-Gboard = placeNPC(Gboard,defaultNPC, 10);
+[Gboard, Mboard]= placeNPC(Gboard,'NPC',defaultNPC, 10);
 %% Checks if Player is in finalbloc
  finalbloc = imread('All_Sprites_PNG\no_texture.png');
 Gboard{1,15} = finalbloc;
