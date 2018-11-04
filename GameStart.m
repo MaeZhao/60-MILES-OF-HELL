@@ -5,7 +5,7 @@ if (play =="y" || play == "Y")
     gamestart = true;
     GameboardDetails
 else
-    msgbox({'Game over' , 'Thank you for playing'})
+    msgbox({'Game over'})
     close all hidden
 end
     

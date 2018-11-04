@@ -10,6 +10,9 @@ for r = 1 :10
     Gboard{r,c} = grass;
     end
 end
+% Player HP and hunger
+PHealthPoint = 100;
+HungerPoint = 100;
 % Creates the Mboard
 % help us 'see' what is on the board
 % if see '0' then nothing is placed there

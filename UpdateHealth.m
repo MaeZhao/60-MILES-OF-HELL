@@ -1,6 +1,4 @@
 %% Update Health 
-
-
 function UpdateHealth(healthUD)
 if PHealthPoint == 100
     updated = true;

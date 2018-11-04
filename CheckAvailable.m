@@ -1,3 +1,4 @@
+% We may not need this
 if MBoard(row,col)==0
     available=true;     %Space opened for player 1 or 2
 else

@@ -13,44 +13,99 @@ for i = 1: pspace
     % needs error check that makes sure that 
 %     1. player stays within the map
 %     2. A menu that pulls up when player interacts with food
-%     3. a menu that pulls up when player interacts with enemies
+%     3. More work needs to be done with  enemies (see Fightscn)
+                %-> Also an player inventory
 %     4. a menu that pulls up when player inreacts with weapons
 %     5. detect when the player should level up
+% TEMPORARY: UNTIL INVENTORY IS MADE
+            tempInventory = itemListW1
     switch move
         case 'uparrow'
             prow = prow-1
             Pposition = [prow, pcol]
-%             if(Mboard(prow, pcol) == 0)
+            % missing if statement for weapons and food
+            if (Mboard(prow, pcol) ~= 0)
+                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-%             elseif (Mboard(prow, pcol) == sum(double(defaultNPC)))
-%                 Fightscrn(Mboard(prow, pcol)
-%             end
+                loadGB(Gboard)
+                if PHealthPoint <= 0
+                    endscreen
+                else
+                    PlayerMovement
+                    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                end
+            else
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+            end
             loadGB(Gboard)
             continue
         case 'downarrow'
            prow = prow+1
            Pposition = [prow, pcol]
-           [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-           [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+            % missing if statement for weapons and food
+            if (Mboard(prow, pcol) ~= 0)
+                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                loadGB(Gboard)
+                if PHealthPoint <= 0
+                    endscreen
+                else
+                    PlayerMovement
+                end
+            else
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+            end
            loadGB(Gboard)
            continue
         case 'leftarrow'
             pcol = pcol-1
             Pposition = [prow, pcol]
-            [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-            [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+             % missing if statement for weapons and food
+            if (Mboard(prow, pcol) ~= 0)
+                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                loadGB(Gboard)
+                if PHealthPoint <= 0
+                    endscreen
+                else
+                    PlayerMovement
+                end
+            else
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+            end
             loadGB(Gboard)
             continue
         case 'rightarrow'
             pcol = pcol+1
             Pposition = [prow, pcol]
-            [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-            [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+%              missing if statement for weapons and food
+           if (Mboard(prow, pcol) ~= 0)
+                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                loadGB(Gboard)
+                if PHealthPoint <= 0
+                    endscreen
+                else
+                    PlayerMovement
+                   
+                end
+            else
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+            end
             loadGB(Gboard)
             continue
     end
     end
 end
+PlayerMovement
 
     

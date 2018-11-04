@@ -30,6 +30,4 @@ if (fightscreen == 1)
 else
     PHealthPoint = PlayerHP + randi([-5,0]);
 end
-menu(strcat("Player HP is:", num2str(PHealthPoint)), 'OK')
-end
 
