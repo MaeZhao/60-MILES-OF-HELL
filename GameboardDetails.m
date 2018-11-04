@@ -33,16 +33,18 @@ end
 Mboard = zeros(10,15);
 %% Place Player
 if gamestart == true
-    player = imread('All_Sprites_PNG\temp_chick.png');
+player = imread('All_Sprites_PNG\temp_chick.png');
     Gboard{10, 1} = player;
-%     playerID = sum(double('player'));
+    %playerID = sum(double('player'));
     Mboard = InputMBoard('player', 10, 1, Mboard);
+    
 %% Place NPC's
 % test with default NPC NEEDS A CHECKER
+% (mboard, gboard, NPCname, NPCtype, npcFreq)
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
-[Gboard, Mboard]= placeNPC(Gboard,'NPC',defaultNPC, 10);
+[Gboard, Mboard]= placeNPC(Mboard,Gboard,'NPC',defaultNPC, 10);
 %% Checks if Player is in finalbloc
- finalbloc = imread('All_Sprites_PNG\no_texture.png');
+finalbloc = imread('All_Sprites_PNG\no_texture.png');
 Gboard{1,15} = finalbloc;
 end
 loadGB(Gboard);
