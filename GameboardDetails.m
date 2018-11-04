@@ -39,7 +39,8 @@ player = imread('All_Sprites_PNG\temp_chick.png');
     Mboard = InputMBoard('player', 10, 1, Mboard);
     
 %% Place NPC's
-% test with default
+% Things TODO:
+% 1. make NPC look like 'PlaceFood and Weapons'
 % (mboard, gboard, NPCname, NPCtype, npcFreq)
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
 [Gboard, Mboard]= placeItem(Mboard,Gboard,'NPC',defaultNPC, 10);
