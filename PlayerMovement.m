@@ -2,11 +2,10 @@
 
 pspace = randi([5 10])
 for i = 1: pspace
-    h=figure(Gboard);
+    h=figure(1);
     waitforbuttonpress;
     move =get(h, 'CurrentKey');
-    
-    oldposition = pposition
+    oldposition = Pposition
     switch move
         case 'up arrow'
             Pposition = {prow,pcol-1}
