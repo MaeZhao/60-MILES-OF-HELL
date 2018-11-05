@@ -27,7 +27,7 @@ for i = 1: pspace
             Pposition = [prow, pcol]
             % missing if statement for weapons and food
             if (Mboard(prow, pcol) ~= 0)
-                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+                PHealthPoint = Fightscrn('defaultNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
                 loadGB(Gboard)
@@ -35,8 +35,6 @@ for i = 1: pspace
                     endscreen
                 else
                     PlayerMovement
-                    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
                 end
             else
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);

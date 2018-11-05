@@ -5,7 +5,7 @@ function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW
 %       -> and then gives list of weapon options
 button{1} = ['fight'];
 button{2} = ['flee'];
-fightscreen = menu(strcat("A ", NPCname," approaches! What do you do?"), button{1}, button{2});
+fightscreen = menu(strcat("A ", NPCname," approaches! It has ", NPCHP, " HP. What do you do?"), button{1}, button{2});
 if (fightscreen == 1)
     wbutton{1} = ['use hands'];
     for i = 2: length(inventoryW)+1

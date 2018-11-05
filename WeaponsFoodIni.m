@@ -4,6 +4,9 @@ itemListW2 =["birchWalkingStick", "metalLid"]
 itemListF2 = ["cannedFood","catTail", "murkyWatah"]
 itemListW3 = ["scrapMetal", "bearSpray"]
 itemListF3 = ["blueberries", "deadBird"]
+% Make NPC Lists with their HP's like below:
+NPCL1 = ["snakes", "hornet", "spiders", "megaToad"]
+NPCL1HP = [6 3 2 10]
 
 spikyNut = [-2, -2]
 phoneFlash = [-2,-2]
