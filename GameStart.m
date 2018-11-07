@@ -10,6 +10,7 @@ if (play =="y" || play == "Y")
     GameboardDetails
 else
     msgbox({'Game over'})
+    pause(3)
     close all hidden
 end
     

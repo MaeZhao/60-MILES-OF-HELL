@@ -46,7 +46,7 @@ player = imread('All_Sprites_PNG\temp_chick.png');
 % 1. make NPC look like 'PlaceFood and Weapons'
 % (mboard, gboard, NPCname, NPCtype, npcFreq)
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
-[Gboard, Mboard]= placeItem(Mboard,Gboard,'NPC',defaultNPC, 10);
+[Gboard, Mboard]= placeItem(Mboard,Gboard,'defaultNPC',defaultNPC, 10);
 %% Place Foods and Weapons
 % test with default
 if level ==1 
