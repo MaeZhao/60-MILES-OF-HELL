@@ -34,5 +34,4 @@ npcHPL2 = [6,3,2,20]
 npcHPL3 = [6,3,10,20]
 
 %HP Attack
-npcATkL1 = [-5,-2,-2,-8]
-npcATkL2
+npcATKL1
