@@ -8,9 +8,6 @@ if (level == 1)
     npcHP = [6,3,2,10]
     npcATk = [-5,-2,-2,-8]
     npcID = zeros(1,length(npcList))
-    for i = 1:length(npcList)
-    npcID(i)= sum(double(char(npcListL1(i))))
-    end
     npcFreq= [3,3,3,1]
 
 end
@@ -21,9 +18,8 @@ if (level == 2)
     npcList= ["wild dogs","rats","biting Gnats","racoon"]
     npcHP = [6,3,2,20]
     npcATk= [-6,-5,-3,-10]
-    npcID = zeros(1,length(npcList))
-    for i = 1:length(npcList)
-    npcID(i)= sum(double(char(npcListL1(i))))
+    for i = 1:length(npcListL1)
+    npcIDL1(i)= sum(double(char(npcListL1(i))))
     end
     npcFreq=[4,4,2,1]
 end
@@ -35,9 +31,6 @@ if (level == 3)
     npcHP= [6,3,10,20]
     npcATk= [-7,-3,-5,-15]
     npcID = zeros(1,length(npcList))
-    for i = 1:length(npcList)
-    npcID(i)= sum(double(char(npcListL1(i))))
-    end
     npcFreq= [4,6,3,1]
     
 
