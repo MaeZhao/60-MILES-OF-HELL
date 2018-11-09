@@ -1,1 +1,7 @@
-if(level 1)
+% needs to happen with EVERY single level
+for i=1: length(npcListL1)
+   tempNPCID(i) = sum(double(char(npcListL1(i))));
+end
+if (level == 1)
+    for
+    find(
