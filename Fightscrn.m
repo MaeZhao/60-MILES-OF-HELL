@@ -13,7 +13,7 @@ if (fightscreen == 1)
     end
     weaponS = menu('Pick a Weapon', wbutton);
     % WE NEED TO HAVE included other levels
-    if (level == 1)
+    if(level == 1)
         switch weaponS
             case 1
                 PHealthPoint = Battle(-5, NPCHit,NPCHP, PlayerHP);
@@ -26,6 +26,7 @@ if (fightscreen == 1)
             case 5
                 PHealthPoint = Battle(-5, NPCHit,NPCHP, PlayerHP);
         end
+    end
     elseif (level==2)
           switch weaponS
             case 1
@@ -46,7 +47,6 @@ if (fightscreen == 1)
                end
   else
     PHealthPoint = PlayerHP + randi([-5,0]);
-end
 menu(strcat("Player HP is:", num2str(PHealthPoint)), 'OK')
 end
 
