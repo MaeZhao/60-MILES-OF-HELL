@@ -1,17 +1,36 @@
 %% Level Content 
 
 
-if (level=1)
+if (level == 1)
     itemListW = ["spikyNut", "phoneFlash", "keys", "stick"]  
     itemListF = ["funGuy",  "crumbs", "apple"]
+    npcListL = ["snakes","hornets","spiders","megaToad"]
+    npcHPL = [6,3,2,10]
+    npcATkL = [-5,-2,-2,-8]
+    npcIDL = zeros(1,length(npcListL1))
+    npc= [3,3,3,1]
+
 end
 
-if (level==2)
+if (level == 2)
     itemListW =["birchWalkingStick", "metalLid"]
     itemListF = ["cannedFood","catTail", "murkyWatah"]
+    npcListL= ["wild dogs","rats","biting Gnats","racoon"]
+    npcHPL = [6,3,2,20]
+    npcATkL = [-6,-5,-3,-10]
+    npcIDL= zeros(1,length(npcListL2))
+    npc=[4,4,2,1]
 end
 
-if (level==3)
+if (level == 3)
     itemListW = ["scrapMetal", "bearSpray"]
     itemListF = ["blueberries", "deadBird"]
+    npcListL = ["wolves","mosquito","owl","Bear"]
+    npcHPL= [6,3,10,20]
+    npcATkL = [-7,-3,-5,-15]
+    npcIDL = zeros(1,length(npcListL3))
+    npc= [4,6
+    
+
+
 end 
