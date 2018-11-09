@@ -1,5 +1,10 @@
 function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level)
 %FIGHTSCRN fight menu that gives 3 options NEEDS HP TO BE WRITTEN
+%   TO BRIANNA:1. create inventoryW is the weapon inventory of the player( if
+%   player touches space with weapon, inventoryW should update to contain
+%   that weapon. 2. as you make inventoryW make a corresponding
+%   inventoryhitW (stores the -HP damage of your weapon IN THE ORDER of
+%   inventoryW)
 %   1. flee
 %   2. fight
 %       -> and then gives list of weapon options

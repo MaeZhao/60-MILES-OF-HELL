@@ -11,8 +11,8 @@ for i = 1: pspace
     if(move ~= 0)
     oldposition = Pposition
     % needs error check that makes sure that 
-%     1. player stays within the map
-%     2. A menu that pulls up when player interacts with  (see Fightscrn
+%     1. player stays within the map (DONE)
+%     2. A menu that pulls up when player interacts with food(see Fightscrn
 %     for an example of how to do it)
 %           -> Also an player items inventory
 %     3. More work needs to be done with  enemies (see Fightscrn)
@@ -48,7 +48,6 @@ for i = 1: pspace
             loadGB(Gboard)
             continue
         case 'downarrow'
-            oldposition = prow
             ocol = pcol
             prow = prow+1
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2)) %check if player is in bounds if not inbounds player does not move
@@ -67,14 +66,13 @@ for i = 1: pspace
                 else
                     PlayerMovement
                 end
-            elseif Mboard
+            else
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
             end
            loadGB(Gboard)
            continue
         case 'leftarrow'
-            oldposition = prow
             ocol = pcol
             pcol = pcol-1
            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
@@ -99,13 +97,12 @@ for i = 1: pspace
             loadGB(Gboard)
             continue
         case 'rightarrow'
-            oldposition = prow
             ocol = pcol
             pcol = pcol+1
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
 %              missing if statement for weapons and food
-          if (Mboard(prow,pcol) == sum(double(char('player'))))
+         if (Mboard(prow,pcol) == sum(double(char('player'))))
                 continue;
             elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
@@ -116,12 +113,11 @@ for i = 1: pspace
                     endscreen
                 else
                     PlayerMovement
-                   
                 end
-            else
+         else
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-            end
+         end
             loadGB(Gboard)
             continue
     end
