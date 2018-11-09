@@ -27,9 +27,7 @@ for i = 1: pspace
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
             % missing if statement for weapons and food
-            if (Mboard(prow,pcol) == sum(double(char('player'))))
-                continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+            if (Mboard(prow, pcol) ~= 0)
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -55,9 +53,8 @@ for i = 1: pspace
           
             Pposition = [prow, pcol]
             % missing if statement for weapons and food
-            if (Mboard(prow,pcol) == sum(double(char('player'))))
-                continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+            wa
+            if (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -80,9 +77,7 @@ for i = 1: pspace
            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
              % missing if statement for weapons and food
-            if (Mboard(prow,pcol) == sum(double(char('player'))))
-                continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+            if (Mboard(prow, pcol) ~= 0)
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -105,9 +100,7 @@ for i = 1: pspace
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
 %              missing if statement for weapons and food
-          if (Mboard(prow,pcol) == sum(double(char('player'))))
-                continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+           if (Mboard(prow, pcol) ~= 0)
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
