@@ -35,7 +35,7 @@ if (fightscreen == 1)
             case 3
                 PHealthPoint = Battle(-13, NPCHit,NPCHP, PlayerHP);
           end
-    elseif (level==3)
+  else(level==3)
                switch weaponS
             case 1
                 PHealthPoint = Battle(-5, NPCHit,NPCHP, PlayerHP);
@@ -43,8 +43,10 @@ if (fightscreen == 1)
                 PHealthPoint = Battle(-11, NPCHit,NPCHP, PlayerHP);
             case 3
                 PHealthPoint = Battle(-30, NPCHit,NPCHP, PlayerHP);
-               end
-  else
+                
+             
+                    
+else
     PHealthPoint = PlayerHP + randi([-5,0]);
 end
 menu(strcat("Player HP is:", num2str(PHealthPoint)), 'OK')
