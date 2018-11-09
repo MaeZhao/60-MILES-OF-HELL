@@ -1,9 +1,0 @@
-% needs to happen with EVERY single level
-function [Mboard, Gboard] = NPCMovement(NPCList, mboard, gboard)
-if (level == 1)
-    for d=1; length(npcListL1)
-        find(Mboard,tempNPCID(d))
-    end 
-end 
-        
-    
