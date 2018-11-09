@@ -35,4 +35,20 @@ npcHPL3 = [6,3,10,20]
 
 %HP Attack
 npcATkL1 = [-5,-2,-2,-8]
-npcATkL2
+npcATkL2 = [-6,-5,-3,-10]
+npcATkL3 = [-7,-3,-5,-15]
+%% 
+npcIDL1 = zeros(1,length(npcListL1))
+npcIDL2 = zeros(1,length(npcListL2))
+npcIDL3 = zeros(1,length(npcListL3))
+
+for i = 1:length(npcListL1)
+    npcIDL1(i)= sum(double(char(npcListL1(i))))
+end
+for i = 1:length(npcListL2)
+    npcIDL2 (i)= sum(double(char(npcListL2(i))))
+end
+for i = 1:length(npcListL3)
+    npcIDL3(i)= sum(double(char(npcListL3(i))))
+end
+
