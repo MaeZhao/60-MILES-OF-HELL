@@ -31,11 +31,11 @@ defaultNPC = imread('All_Sprites_PNG\default_mon.png');
 %% Place Foods and Weapons
 % test with default
 if level ==1 
-          itemW = itemListW1
-          itemF=  itemListF1
+       itemW = itemListW1
+       itemF=  itemListF1
 elseif level == 2
-        itemW= itemListW2
-        itemF= itemListF2
+       itemW= itemListW2
+       itemF= itemListF2
 elseif level == 3
        itemW= itemListW3
        itemF=  itemListF3
