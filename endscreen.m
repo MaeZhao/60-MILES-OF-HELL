@@ -1,12 +1,16 @@
-% End Screen INCOMPLETE 
+% End Screen 
 if level>3
-    msgbox({'You won',Thank You For Playing})
-else 
-    msgbox({'You lost',Thank You For Playing})
-end 
-gameEnd = char(inputdlg("Do you want to play again?"))
-if (Play== 'Y'|| play== 'y')
-    load menu
-else 
-    exit game
-end 
+    w = msgbox("After 3 hard nights,Chick Lil reached civilization, and lived happily ever after. Congrats!"...
+               , "THE END") 
+    uiwait(w);
+elseif (PHealthPoint <= 0)
+    w = msgbox("Oh no!! Chick Lil died!"...
+               , "THE END") 
+    uiwait(w);
+gameEnd = questdlg("Do you want to play again?",'Play Again?', "Yes",...
+    "No", "Yes")
+switch gameEnd
+    case "Yes"
+        GameStart
+    case "No"
+end

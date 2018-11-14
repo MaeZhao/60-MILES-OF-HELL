@@ -29,31 +29,8 @@ for i = 1: pspace
             [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
-                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                loadGB(Gboard)
-                if PHealthPoint <= 0
-                    endscreen
-                else
-                    PlayerMovement
-                    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                end
-%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK        
-            elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-                disp("NEEDS TO BE CODED!")
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                
-            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-                disp("NEEDS TO BE CODED!")
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
             else
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                PlayerInteractCheck % I MOVED ALL OF THE USER INTERACTION (WEAPONS/FOOD/NPC TO PLAYERINTERACTCHECK
             end
             loadGB(Gboard)
             continue
@@ -65,28 +42,8 @@ for i = 1: pspace
             [index, ptype] = itemType(Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (ptype == 'N' && Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
-                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                loadGB(Gboard)
-                if PHealthPoint <= 0
-                    endscreen
-                else
-                    PlayerMovement
-                end
-%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
-            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-              disp("NEEDS TO BE CODED!")
-              [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-              [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-            elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-              disp("NEEDS TO BE CODED!")
-              [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-              [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
             else
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                PlayerInteractCheck
             end
            loadGB(Gboard)
            continue
@@ -98,30 +55,8 @@ for i = 1: pspace
             [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (ptype=='N' && Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
-                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                loadGB(Gboard)
-                if PHealthPoint <= 0
-                    endscreen
-                else
-                    PlayerMovement
-                end
-%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
-            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-                disp("NEEDS TO BE CODED!")
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                
-            elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-                disp("NEEDS TO BE CODED!")
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                
-            else
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+            else 
+                PlayerInteractCheck
             end
             loadGB(Gboard)
             continue
@@ -134,36 +69,14 @@ for i = 1: pspace
 %              missing if statement for weapons and food
          if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (ptype=='N' && Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
-                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                loadGB(Gboard)
-                if PHealthPoint <= 0
-                    endscreen
-                else
-                    PlayerMovement
-                end
-%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
-            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-                disp("NEEDS TO BE CODED!")   
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-                
-         elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
-             disp("NEEDS TO BE CODED!")
-             [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-             [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-             
          else
-                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
-                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+             PlayerInteractCheck
          end
             loadGB(Gboard)
             continue
     end
     end
 end
-PlayerMovement
+%PlayerMovement
 
     
