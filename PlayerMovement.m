@@ -26,11 +26,11 @@ for i = 1: pspace
             prow = prow-1
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
-            % missing if statement for weapons and food
+            [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
                 continue;
-            if(Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID) % either food or weapon
-                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+            elseif(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
+                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
                 loadGB(Gboard)
@@ -41,6 +41,16 @@ for i = 1: pspace
                     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
                 end
+%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK        
+            elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+                disp("NEEDS TO BE CODED!")
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                
+            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+                disp("NEEDS TO BE CODED!")
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
             else
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -51,13 +61,12 @@ for i = 1: pspace
             ocol = pcol
             prow = prow+1
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2)) %check if player is in bounds if not inbounds player does not move
-          
             Pposition = [prow, pcol]
-            % missing if statement for weapons and food
+            [index, ptype] = itemType(Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
-                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+            elseif (ptype == 'N' && Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
+                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
                 loadGB(Gboard)
@@ -66,6 +75,15 @@ for i = 1: pspace
                 else
                     PlayerMovement
                 end
+%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
+            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+              disp("NEEDS TO BE CODED!")
+              [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+              [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+            elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+              disp("NEEDS TO BE CODED!")
+              [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+              [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
             else
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -77,11 +95,11 @@ for i = 1: pspace
             pcol = pcol-1
            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
-             % missing if statement for weapons and food
+            [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
-                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+            elseif (ptype=='N' && Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
+                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
                 loadGB(Gboard)
@@ -90,6 +108,17 @@ for i = 1: pspace
                 else
                     PlayerMovement
                 end
+%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
+            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+                disp("NEEDS TO BE CODED!")
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                
+            elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+                disp("NEEDS TO BE CODED!")
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                
             else
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -101,11 +130,12 @@ for i = 1: pspace
             pcol = pcol+1
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
+            [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
 %              missing if statement for weapons and food
          if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
-                PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
+            elseif (ptype=='N' && Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
+                PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
                 loadGB(Gboard)
@@ -114,6 +144,17 @@ for i = 1: pspace
                 else
                     PlayerMovement
                 end
+%%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
+            elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+                disp("NEEDS TO BE CODED!")   
+                [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+                [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+                
+         elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
+             disp("NEEDS TO BE CODED!")
+             [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+             [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+             
          else
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
