@@ -20,16 +20,16 @@ for i = 1: pspace
 %     4. a menu that pulls up when player inreacts with weapons
 %     5. detect when the player should level up
 % TEMPORARY: UNTIL INVENTORY IS MADE
-            tempInventory = itemListW1
+            tempInventory = itemListW
     switch move
         case 'uparrow'
             prow = prow-1
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
             % missing if statement for weapons and food
-            if (Mboard(prow,pcol) == sum(double(char('player'))))
+            if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+            if(Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID) % either food or weapon
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -54,9 +54,9 @@ for i = 1: pspace
           
             Pposition = [prow, pcol]
             % missing if statement for weapons and food
-            if (Mboard(prow,pcol) == sum(double(char('player'))))
+            if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -78,9 +78,9 @@ for i = 1: pspace
            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
              % missing if statement for weapons and food
-            if (Mboard(prow,pcol) == sum(double(char('player'))))
+            if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -102,9 +102,9 @@ for i = 1: pspace
             [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
             Pposition = [prow, pcol]
 %              missing if statement for weapons and food
-         if (Mboard(prow,pcol) == sum(double(char('player'))))
+         if (Mboard(prow,pcol) == playerID)
                 continue;
-            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= sum(double(char('player'))))
+            elseif (Mboard(prow, pcol) ~= 0 && Mboard(prow,pcol) ~= playerID)
                 PHealthPoint = Fightscrn('defaulNPC', PHealthPoint, 6, -5, tempInventory,level)
                 [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
                 [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);

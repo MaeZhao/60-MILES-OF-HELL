@@ -12,16 +12,11 @@ end
 Mboard = zeros(10,15);
 if level >= 1
 %% Place Player
-player = imread('All_Sprites_PNG\temp_chick.png');
     Gboard{10, 1} = player;
-    %playerID = sum(double('player'));
-    Mboard = InputMBoard('player', 10, 1, Mboard);
+    Mboard(10,1) = playerID;
     
 %% Place NPC's
-% Things TODO:
-% 1. make NPC look like 'PlaceFood and Weapons'
-% (mboard, gboard, NPCname, NPCtype, npcFreq)
-[Mboard, Gboard] = drop(npcID, npcList, Mboard, Gboard)
+[Mboard, Gboard] = drop(npcID, itemNPCPic,npcFreq, Mboard, Gboard)
 %% Place Foods and Weapons
 % test with default
 % if level ==1 
@@ -34,8 +29,8 @@ player = imread('All_Sprites_PNG\temp_chick.png');
 %        itemW= itemListW3
 %        itemF=  itemListF3
 % end
-[Mboard, Gboard] = drop(itemWID, itemListW, Mboard, Gboard)
-[Mboard, Gboard] = drop(itemFID, itemListF, Mboard, Gboard)
+[Mboard, Gboard] = drop(itemWID, itemWPic,genericFreq, Mboard, Gboard)
+[Mboard, Gboard] = drop(itemFID, itemFPic,genericFreq, Mboard, Gboard)
 %% Place finalbloc
 %(itemName, row, col, board)
 finalbloc = imread('All_Sprites_PNG\no_texture.png');
