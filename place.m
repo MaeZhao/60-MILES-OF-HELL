@@ -1,4 +1,4 @@
-function [Gboard, Mboard] = placeItem(mboard, gboard, ItemID, ItemPic, Itemfreq)%change itemName to ItemID
+function [Gboard, Mboard] = place(mboard, gboard, ItemID, ItemPic, Itemfreq)%change itemName to ItemID
 %   placeITEM places the NPC/items randomly
 %   WE NEED A CHECKER THAT MAKES SURE THAT NO ONE SPOT IS OVERLOADED
 for i = 1: Itemfreq %WE NEED A CHECKER TO CHECK FOR OVERLAP
@@ -9,7 +9,7 @@ for i = 1: Itemfreq %WE NEED A CHECKER TO CHECK FOR OVERLAP
         ncol = randi([1 15]);
     end
     gboard{nrow,ncol}= ItemPic;
-    mboard{nrow,ncol}= ItemID;
+    mboard(nrow,ncol) = ItemID;
 end
 Mboard = mboard;
 Gboard = gboard;

@@ -4,7 +4,7 @@ tboard = mboard;
 if (level == 1)
     for d=1; length(NPCIDList)
         find(tboard,NPCIDList(d))
-        [mboard, gboard] = placeItem(mboard, gboard, NPCName(d),NPCPic,1)
+        [mboard, gboard] = place(mboard, gboard, NPCName(d),NPCPic,1)
     end 
 end 
         

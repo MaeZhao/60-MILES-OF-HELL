@@ -22,7 +22,7 @@ player = imread('All_Sprites_PNG\temp_chick.png');
 % 1. make NPC look like 'PlaceFood and Weapons'
 % (mboard, gboard, NPCname, NPCtype, npcFreq)
 defaultNPC = imread('All_Sprites_PNG\default_mon.png');
-[Gboard, Mboard]= placeItem(Mboard,Gboard,'defaultNPC',defaultNPC, 10);
+[Gboard, Mboard]= place(Mboard,Gboard,,defaultNPC, 10);
 %% Place Foods and Weapons
 % test with default
 % if level ==1 
@@ -35,7 +35,7 @@ defaultNPC = imread('All_Sprites_PNG\default_mon.png');
 %        itemW= itemListW3
 %        itemF=  itemListF3
 % end
-[Mboard, Gboard] = dropitems(itemWID, itemF, Mboard, Gboard)
+[Mboard, Gboard] = dropWeaponFood(itemWID, itemFID,itemListF, itemListW, Mboard, Gboard)
 %% Place finalbloc
 %(itemName, row, col, board)
 finalbloc = imread('All_Sprites_PNG\no_texture.png');
