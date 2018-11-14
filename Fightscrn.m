@@ -21,34 +21,34 @@ if (fightscreen == 1)
     if(level == 1)
         switch weaponS
             case 1
-                PHealthPoint = Battle(-5, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
             case 2
-                PHealthPoint = Battle(-2, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
             case 3
-                PHealthPoint = Battle(-2, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
             case 4
-                PHealthPoint = Battle(-8, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-8, NPCHit,NPCHP, PlayerHP);
             case 5
-                PHealthPoint = Battle(-5, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
         end
     end
     elseif (level==2)
           switch weaponS
             case 1
-                PHealthPoint = Battle(-5, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
             case 2
-                PHealthPoint = Battle(-10, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-10, NPCHit,NPCHP, PlayerHP);
             case 3
-                PHealthPoint = Battle(-13, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-13, NPCHit,NPCHP, PlayerHP);
           end
     elseif (level==3)
                switch weaponS
             case 1
-                PHealthPoint = Battle(-5, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
             case 2
-                PHealthPoint = Battle(-11, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-11, NPCHit,NPCHP, PlayerHP);
             case 3
-                PHealthPoint = Battle(-30, NPCHit,NPCHP, PlayerHP);
+                PHealthPoint = battle(-30, NPCHit,NPCHP, PlayerHP);
                end
   else
     PHealthPoint = PlayerHP + randi([-5,0]);
