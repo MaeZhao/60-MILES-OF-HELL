@@ -1,5 +1,5 @@
 function [Mboard, Gboard] = dropitems(itemW, itemF, mboard, gboard)
-% temporary because we do not have individual png pictures for all items
+% DROPS weapons and food onto mboard
 tempitemListW = cell(1, size(itemW,2))
 for h=1:length(itemW)
     % itemID

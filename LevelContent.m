@@ -1,6 +1,4 @@
 %% Level Content 
-clear
-clc
 if (level == 1)
     itemListW = ["spikyNut", "phoneFlash", "keys", "stick"]  
     itemListF = ["funGuy",  "crumbs", "apple"]
