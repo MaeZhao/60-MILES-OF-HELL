@@ -4,10 +4,9 @@
 Pposition = [prow, pcol]
 pspace = randi([5 10])
 for i = 1: pspace
-
     h=figure(1);
-    waitforbuttonpress
     move = get(h, 'CurrentKey')
+    waitforbuttonpress
     if(move ~= 0)
     oldposition = Pposition
     % needs error check that makes sure that 
@@ -21,20 +20,20 @@ for i = 1: pspace
 %     5. detect when the player should level up
 % TEMPORARY: UNTIL INVENTORY IS MADE
             tempInventory = itemListW
-    switch move
-        case 'uparrow'
-            prow = prow-1
-            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
-            Pposition = [prow, pcol]
-            
-            [index, ptype]=itemType(Mboard(prow,pcol),itemWID,itemFID,npcID);
-            if (Mboard(prow,pcol) == playerID)
-                continue;
-            else
-                PlayerInteractCheck % I MOVED ALL OF THE USER INTERACTION (WEAPONS/FOOD/NPC TO PLAYERINTERACTCHECK
-            end
-            loadGB(Gboard)
-            continue
+            switch move
+                case 'uparrow'
+                    prow = prow-1
+                    [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
+                    Pposition = [prow, pcol]
+                    
+                    [index, ptype]=itemType(Mboard(prow,pcol),itemWID,itemFID,npcID);
+                    if (Mboard(prow,pcol) == playerID)
+                        continue;
+                    else
+                        PlayerInteractCheck % I MOVED ALL OF THE USER INTERACTION (WEAPONS/FOOD/NPC TO PLAYERINTERACTCHECK
+                    end
+                    loadGB(Gboard)
+                    continue
         case 'downarrow'
             ocol = pcol
             prow = prow+1
