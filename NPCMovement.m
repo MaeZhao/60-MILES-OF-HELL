@@ -13,7 +13,7 @@ NPCpic = itemNPCpic(npcIDList==nID)
 % Now atkStyle:
 switch atkStyle
     case "direct" %level 1 toad
-        for d = 1: length(activeNPC) % moves every activeNPC type
+        for d = 1: length(NPCpos) % moves every activeNPC type
             % Moves row
             if(NPCpos{d}(1) > Pposition(1))
                 tempNPCrow = NPCpos{d}(1)-1

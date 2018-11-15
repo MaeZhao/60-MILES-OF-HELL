@@ -23,5 +23,6 @@ else
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 end
+[Mboard, Gboard] = NPCMovement(Mboard, Gboard, grass, npcID(find(npcList=="snakes")), Pposition, "direct", npcID, itemNPCPic)
 loadGB(Gboard)
 
