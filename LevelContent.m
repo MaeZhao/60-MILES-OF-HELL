@@ -1,4 +1,5 @@
 %% Level Content 
+ATTACK = false; % used to check whether or not a player is attack or being attacked
 genericFreq = [1, 1, 1, 1, 1, 1];
 playerID = sum(double(char('player')));
 player = imread('All_Sprites_PNG\temp_chick.png');

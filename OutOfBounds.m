@@ -13,7 +13,7 @@ switch type
         end
     case "NPC"
         if tprow >= 1 && tprow <= 10 && tpcol>=1 && tpcol <= 15 ...
-                && mboard(tprow,tpcol) == 0 % FOR NPC's ALSO MAKES SURE THAT THERE IS NOTHING THERE
+                && (mboard(tprow,tpcol) == 0 || mboard(tprow,tpcol) == sum(double(char('player')))) % FOR NPC's ALSO MAKES SURE THAT THERE IS NOTHING THERE
             prow = tprow;
             pcol = tpcol;
         else
@@ -21,5 +21,6 @@ switch type
             pcol = oldposition2
         end
         
+end
 end
 

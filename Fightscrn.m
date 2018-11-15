@@ -32,26 +32,26 @@ if (fightscreen == 1)
                 PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
         end
     end
-    elseif (level==2)
-          switch weaponS
-            case 1
-                PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
-            case 2
-                PHealthPoint = battle(-10, NPCHit,NPCHP, PlayerHP);
-            case 3
-                PHealthPoint = battle(-13, NPCHit,NPCHP, PlayerHP);
-          end
-    elseif (level==3)
-               switch weaponS
-            case 1
-                PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
-            case 2
-                PHealthPoint = battle(-11, NPCHit,NPCHP, PlayerHP);
-            case 3
-                PHealthPoint = battle(-30, NPCHit,NPCHP, PlayerHP);
-               end
-  else
+elseif (level==2)
+    switch weaponS
+        case 1
+            PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
+        case 2
+            PHealthPoint = battle(-10, NPCHit,NPCHP, PlayerHP);
+        case 3
+            PHealthPoint = battle(-13, NPCHit,NPCHP, PlayerHP);
+    end
+elseif (level==3)
+    switch weaponS
+        case 1
+            PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
+        case 2
+            PHealthPoint = battle(-11, NPCHit,NPCHP, PlayerHP);
+        case 3
+            PHealthPoint = battle(-30, NPCHit,NPCHP, PlayerHP);
+    end
+end
     PHealthPoint = PlayerHP + randi([-5,0]);
-menu(strcat("Player HP is:", num2str(PHealthPoint)), 'OK')
+    menu(strcat("Player HP is:", num2str(PHealthPoint)), 'OK')
 end
 

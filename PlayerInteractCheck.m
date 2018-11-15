@@ -1,18 +1,17 @@
-if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
-    PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, inventoryW,level)
-    % Our goal is to Call NPC Movement
+if(ptype=='N' && ATTACK == false && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
+    %(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level)
+    loadGB(Gboard)
+    PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level)
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player,playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-    loadGB(Gboard)
+    ATTACK = false
     if PHealthPoint <= 0
         endscreen
     end
     %%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
 elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) %Weapons
     %given the ID number that we find on Mboard, I would find the position
-    %of the ID number in the itemlistWID index 
-    IDcheck = Mboard(prow,pcol)
-    InventoryUpdate
+    inventoryW(index) = itemListW(index); % inventory update
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     
@@ -24,6 +23,13 @@ else
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 end
-[Mboard, Gboard] = NPCMovement(Mboard, Gboard, grass, npcID(find(npcList=="snakes")), Pposition, "direct", npcID, itemNPCPic)
-loadGB(Gboard)
+% loadGB(Gboard)
+[Mboard, Gboard, PHealthPoint,ATTACK] = NPCMovement(Mboard, Gboard, grass, npcID(find(npcList=="hornets")), Pposition, PHealthPoint,inventoryW,...
+    "swarm", level, npcHP, npcID,npcList,npcATk, itemNPCPic, ATTACK)
+[Mboard, Gboard, PHealthPoint,ATTACK] = NPCMovement(Mboard, Gboard, grass, npcID(find(npcList=="snakes")), Pposition, PHealthPoint,inventoryW,...
+    "picker", level, npcHP, npcID,npcList,npcATk, itemNPCPic, ATTACK)
+[Mboard, Gboard, PHealthPoint,ATTACK] = NPCMovement(Mboard, Gboard, grass, npcID(find(npcList=="megaToad")), Pposition, PHealthPoint,inventoryW,...
+    "tank", level, npcHP, npcID,npcList,npcATk, itemNPCPic, ATTACK)
+endscreen
+ loadGB(Gboard)
 
