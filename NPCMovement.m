@@ -1,11 +1,12 @@
 % needs to happen with EVERY single level
-function [Mboard, Gboard] = NPCMovement(NPCIDList,NPCName,NPCPic, mboard, gboard)
-tboard = mboard;
-if (level == 1)
-    for d=1; length(NPCIDList)
-        find(tboard,NPCIDList(d))
-        [mboard, gboard] = place(mboard, gboard, NPCName(d),NPCPic,1)
-    end 
+% 3 levels: easy, medium, hard
+% 3 types of attackers: indirect, swarm, tank
+function [Mboard, Gboard] = NPCMovement(mboard, gboard, npc, atkStyle, activeNPC,...
+    itemNPCpic)
+switch atkStyle
+    case "direct" %level 1 toad
+        if
+    
 end 
         
     

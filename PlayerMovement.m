@@ -77,6 +77,6 @@ for i = 1: pspace
     end
     end
 end
-PlayerMovement
+ PlayerMovement
 
     

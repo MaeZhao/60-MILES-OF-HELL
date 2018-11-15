@@ -14,4 +14,5 @@ switch gameEnd
     case "Yes"
         GameStart
     case "No"
+        close all hidden
 end
