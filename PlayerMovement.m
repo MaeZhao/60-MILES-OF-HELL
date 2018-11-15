@@ -24,9 +24,10 @@ for i = 1: pspace
     switch move
         case 'uparrow'
             prow = prow-1
-            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
+            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
             Pposition = [prow, pcol]
-            [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
+            
+            [index, ptype]=itemType(Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
                 continue;
             else
@@ -37,7 +38,7 @@ for i = 1: pspace
         case 'downarrow'
             ocol = pcol
             prow = prow+1
-            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2)) %check if player is in bounds if not inbounds player does not move
+            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard) %check if player is in bounds if not inbounds player does not move
             Pposition = [prow, pcol]
             [index, ptype] = itemType(Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
@@ -50,7 +51,7 @@ for i = 1: pspace
         case 'leftarrow'
             ocol = pcol
             pcol = pcol-1
-           [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
+           [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
             Pposition = [prow, pcol]
             [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
             if (Mboard(prow,pcol) == playerID)
@@ -63,7 +64,7 @@ for i = 1: pspace
         case 'rightarrow'
             ocol = pcol
             pcol = pcol+1
-            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2))
+            [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
             Pposition = [prow, pcol]
             [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
 %              missing if statement for weapons and food

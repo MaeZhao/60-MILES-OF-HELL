@@ -10,15 +10,15 @@ if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
     %%         BRIANNAA I CREATED THE CONDITION FOR FOOD PLEASE TAKE A LOOK
 elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) %Weapons
     disp("NEEDS TO BE CODED!")
-    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     
 elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)%Food
     disp("NEEDS TO BE CODED!")
-    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 else
-    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player);
+    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 end
 loadGB(Gboard)
