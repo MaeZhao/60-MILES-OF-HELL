@@ -9,32 +9,34 @@ for i = 1: length(row')
     NPCpos{i} = [row(i), col(i)];
 end
 % finds npcID's corresponding picture
-NPCpic = itemNPCpic(npcIDList==nID)
+NPCpic = itemNPCpic{1,npcIDList==nID}
 % Now atkStyle:
 switch atkStyle
     case "direct" %level 1 toad
         for d = 1: length(NPCpos) % moves every activeNPC type
             % Moves row
+            oldposition = [NPCpos{d}(1),NPCpos{d}(2)];
             if(NPCpos{d}(1) > Pposition(1))
                 tempNPCrow = NPCpos{d}(1)-1
-                NPCpos{d} = OutOfBounds(tempNPCrow,NPCpos{d}(2),NPCpos{d}(1),NPCpos{d}(2)) % if out of bounds, address does not change
+                [NPCpos{d}(1),NPCpos{d}(2)] = OutOfBounds(tempNPCrow,NPCpos{d}(2),NPCpos{d}(1),NPCpos{d}(2),"NPC", mboard) % if out of bounds, address does not change
             elseif (NPCpos{d}(1) < Pposition(1))
                 tempNPCrow = NPCpos{d}(1)+1
-                NPCpos{d} = OutOfBounds(tempNPCrow,NPCpos{d}(2),NPCpos{d}(1),NPCpos{d}(2), "NPC", mboard) % if out of bounds, address does not change
+                [NPCpos{d}(1),NPCpos{d}(2)] = OutOfBounds(tempNPCrow,NPCpos{d}(2),NPCpos{d}(1),NPCpos{d}(2), "NPC", mboard) % if out of bounds, address does not change
             end
             % Moves col
             if(NPCpos{d}(2) > Pposition(2))
                 tempNPCcol = NPCpos{d}(2)-1
-                NPCpos{d} = OutOfBounds(NPCpos{d}(1),tempNPCcol,NPCpos{d}(1),NPCpos{d}(2), "NPC", mboard) % if out of bounds, address does not change
+                [NPCpos{d}(1),NPCpos{d}(2)] = OutOfBounds(NPCpos{d}(1),tempNPCcol,NPCpos{d}(1),NPCpos{d}(2), "NPC", mboard) % if out of bounds, address does not change
             elseif (NPCpos{d}(2) < Pposition(2))
                 tempNPCcol = NPCpos{d}(1)+1
-                NPCpos{d} = OutOfBounds(NPCpos{d}(1),tempNPCcol,NPCpos{d}(1),NPCpos{d}(2), "NPC", mboard)% if out of bounds, address does not change
+                [NPCpos{d}(1),NPCpos{d}(2)] = OutOfBounds(NPCpos{d}(1),tempNPCcol,NPCpos{d}(1),NPCpos{d}(2), "NPC", mboard)% if out of bounds, address does not change
             end
-            [mboard, gboard] = moveplayer(NPCpos{d}, mboard, gboard, NPCpic, nID, "NPC", mboard); %use moveplayer to move NPCS
+            [mboard, gboard] = moveplayer(NPCpos{d}, mboard, gboard, NPCpic, nID); %use moveplayer to move NPCS
             [mboard, gboard] = deleteOldPos(oldposition,mboard, gboard, grass);
         end
 end
-[Mboard, Gboard] = [mboard,gboard]
+Mboard = mboard;
+Gboard = gboard;
 end
             
             
