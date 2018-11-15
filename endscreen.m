@@ -7,6 +7,7 @@ elseif (PHealthPoint <= 0)
     w = msgbox("Oh no!! Chick Lil died!"...
                , "THE END") 
     uiwait(w);
+end
 gameEnd = questdlg("Do you want to play again?",'Play Again?', "Yes",...
     "No", "Yes")
 switch gameEnd
