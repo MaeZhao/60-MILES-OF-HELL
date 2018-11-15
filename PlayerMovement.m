@@ -19,6 +19,10 @@ for i = 1: pspace
         %     4. a menu that pulls up when player inreacts with weapons
         %     5. detect when the player should level up
         % TEMPORARY: UNTIL INVENTORY IS MADE
+        if(Pposition==[1,15])%TEMPORARY, UNTILL OTHER LEVELS ARE MADE BISH
+            level = 4;
+            endscreen
+        end
         inventoryW
         switch move
             case 'uparrow'
