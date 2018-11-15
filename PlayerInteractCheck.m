@@ -1,5 +1,5 @@
 if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
-    PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, tempInventory,level)
+    PHealthPoint = Fightscrn(npcList(index), PHealthPoint, 6, -5, inventoryW,level)
     % Our goal is to Call NPC Movement
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player,playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
@@ -11,7 +11,8 @@ if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
 elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) %Weapons
     %given the ID number that we find on Mboard, I would find the position
     %of the ID number in the itemlistWID index 
-    disp("NEEDS TO BE CODED!")
+    IDcheck = Mboard(prow,pcol)
+    InventoryUpdate
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     

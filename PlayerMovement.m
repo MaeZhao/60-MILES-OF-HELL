@@ -19,7 +19,7 @@ for i = 1: pspace
         %     4. a menu that pulls up when player inreacts with weapons
         %     5. detect when the player should level up
         % TEMPORARY: UNTIL INVENTORY IS MADE
-        tempInventory = itemListW
+        inventoryW
         switch move
             case 'uparrow'
                 prow = prow-1
