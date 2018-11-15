@@ -74,5 +74,5 @@ end
 end 
 % inventory string array that is the same length as the itemlistW " "
 for i = 1:length(itemListW)
-    inventory(i)= " "
+    inventoryW(i)= " "
 end
