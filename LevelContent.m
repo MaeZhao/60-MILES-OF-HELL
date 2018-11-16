@@ -4,7 +4,7 @@ genericFreq = [1, 1, 1, 1, 1, 1];
 playerID = sum(double(char('player')));
 player = imread('All_Sprites_PNG\temp_chick.png');
 if (level == 1)
-    itemListW = ["spikyNut", "phoneFlash", "keys", "stick"]  
+    itemListW = ["Rock", "Flash", "keys", "knife"]  
     itemWPic = loadSprite(itemListW, 'W', level);
     itemListF = ["funGuy",  "crumbs", "apple"]
     itemFPic = loadSprite(itemListF, 'F', level);
