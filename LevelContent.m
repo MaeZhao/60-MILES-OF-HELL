@@ -28,7 +28,7 @@ if (level == 1)
 end
 
 if (level == 2)
-    itemListW =["birchWalkingStick", "metalLid"]
+    itemListW =["Pan", "Hatchet"]
     itemWPic = loadSprite(itemListW, 'W', level);
     itemListF = ["cannedFood","catTail", "murkyWatah"]
     itemFPic = loadSprite(itemListF, 'F', level);
@@ -51,7 +51,7 @@ end
 end
 
 if (level == 3)
-    itemListW = ["scrapMetal", "bearSpray"]
+    itemListW = ["Shovel", "Rake"]
     itemWPic = loadSprite(itemListW, 'W', level);
     itemListF = ["blueberries", "deadBird"]
     itemFPic = loadSprite(itemListF, 'F', level);
