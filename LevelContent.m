@@ -6,7 +6,7 @@ player = imread('All_Sprites_PNG\temp_chick.png');
 if (level == 1)
     itemListW = ["Rock", "Flash", "keys", "knife"]  
     itemWPic = loadSprite(itemListW, 'W', level);
-    itemListF = ["funGuy",  "crumbs", "apple"]
+    itemListF = ["funGuy",  "Broccoli", "apple"]
     itemFPic = loadSprite(itemListF, 'F', level);
     itemFHunger = [3, 4, 15 ; 6, 4, 15]
     npcList= ["snakes","hornets","spiders","megaToad"]
@@ -30,7 +30,7 @@ end
 if (level == 2)
     itemListW =["Pan", "Hatchet"]
     itemWPic = loadSprite(itemListW, 'W', level);
-    itemListF = ["cannedFood","catTail", "murkyWatah"]
+    itemListF = ["orange","fish", "potato"]
     itemFPic = loadSprite(itemListF, 'F', level);
     itemFHunger = [33,11,-10; 33,11,5]
     npcList= ["wild dogs","rats","biting Gnats","racoon"]
@@ -53,7 +53,7 @@ end
 if (level == 3)
     itemListW = ["Shovel", "Rake"]
     itemWPic = loadSprite(itemListW, 'W', level);
-    itemListF = ["blueberries", "deadBird"]
+    itemListF = ["blueberries", "meat"]
     itemFPic = loadSprite(itemListF, 'F', level);
     itemFHunger = [20,-10; 20,-10]
     npcList= ["wolves","mosquito","owl","Bear"]
