@@ -1,12 +1,11 @@
- if mboard(tprow,tpcol) == sum(double(char('player'))) % attacks player
-            [index, ~] = itemType(itemID,itemWID,itemFID,npcID)
-            PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level)
-            if(PHealthPoint>0)
-                prow = tprow;
-                pcol = tpcol;
-            else
-                prow = oldposition1
-                pcol = oldposition2
-                endscreen
-            end
- end
+% ATTACKS players to be used in NPC Movements
+[index, ~] = itemType(nID, [0,0], [0,0], npcID)
+ATTACK = true;
+PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level)
+if(PHealthPoint<=0)
+    PHealthPoint = 0
+    d = length(npos)
+else
+    [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+    %loadGB % show this because nposition changed permanently 
+end
