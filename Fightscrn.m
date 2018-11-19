@@ -1,4 +1,5 @@
-function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level)
+function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level,...
+    npcList,itemListW, itemWhit, npcHP,npcATk)
 %FIGHTSCRN fight menu that gives 3 options NEEDS HP TO BE WRITTEN
 %   TO BRIANNA:1. create inventoryW is the weapon inventory of the player( if
 %   player touches space with weapon, inventoryW should update to contain
@@ -10,26 +11,55 @@ function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW
 %       -> and then gives list of weapon options
 button{1} = ['fight'];
 button{2} = ['flee'];
-fightscreen = menu(strcat("A ", NPCname," approaches! What do you do?"), button{1}, button{2});
+fightscreen = menu(strcat("A ", NPCname," approaches! It has ",...
+    num2str(npcHP(npcList==NPCname))," HP and has a hit point of ", num2str(npcATk(npcList==NPCname)),...
+    " HP per hit turn. What do you do?"), button{1}, button{2});
 if (fightscreen == 1)
-    wbutton{1} = ['use hands'];
+    wbutton{1} = ["use hands: -5 HP"]
     for i = 2: length(inventoryW)+1
-        wbutton{i} = [inventoryW{i-1}]
+        if(inventoryW{i-1}~=itemListW{i-1})
+            wbutton{i} = [inventoryW{i-1}]
+        else
+            wbutton{i} = [strcat(inventoryW{i-1}, ": ",...
+            num2str(itemWhit(inventoryW==inventoryW{i-1})), " HP")]
+        end
     end
     weaponS = menu('Pick a Weapon', wbutton);
     % WE NEED TO HAVE included other levels
+    weap = "nothing"
     if(level == 1)
         switch weaponS
             case 1
+                weap = "hands"
                 PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
             case 2
-                PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
+                weap = inventoryW{2}
+                if(inventoryW{2} == " ")
+                    PHealthPoint = battle(0, NPCHit,NPCHP, PlayerHP);
+                else
+                    PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
+                end
             case 3
-                PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
+                weap = inventoryW{3}
+                if(inventoryW{3} == " ")
+                    PHealthPoint = battle(0, NPCHit,NPCHP, PlayerHP);
+                else
+                    PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
+                end
             case 4
+                weap = inventoryW{4}
+                if(inventoryW{4} == " ")
+                    PHealthPoint = battle(0, NPCHit,NPCHP, PlayerHP);
+                else
                 PHealthPoint = battle(-8, NPCHit,NPCHP, PlayerHP);
+                end
             case 5
+                weap = inventoryW{5}
+                if(inventoryW{5} == " ")
+                    PHealthPoint = battle(0, NPCHit,NPCHP, PlayerHP);
+                else
                 PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
+                end
         end
     end
 elseif (level==2)
@@ -51,7 +81,10 @@ elseif (level==3)
             PHealthPoint = battle(-30, NPCHit,NPCHP, PlayerHP);
     end
 end
+if( weap == "nothing")
     PHealthPoint = PlayerHP + randi([-5,0]);
-    menu(strcat("Player HP is:", num2str(PHealthPoint)), 'OK')
+    menu(strcat("You fled. Player HP is: ", num2str(PHealthPoint)), 'OK')
+else
+    menu(strcat("You attacked with ", weap, ". Player HP is: ", num2str(PHealthPoint)), 'OK')
 end
 

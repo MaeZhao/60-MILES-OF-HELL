@@ -26,6 +26,7 @@ if (level == 1)
     itemFID(i)= sum(double(char(itemListF(i))))
     end
     npcFreq= [3,3,3,1]
+    itemWhit = [-2, -2, -8]
     
 end
 

@@ -1,6 +1,8 @@
-% End Screen 
-if level > 3 || PHealthPoint <= 0
-    if level>3
+% End Screen
+[prow, pcol] = find(Mboard==playerID)
+if((prow == 1 && pcol == 15)||  PHealthPoint <= 0)
+    level = level + 1;
+    if level > 1
         w = msgbox("After 3 hard nights,Chick Lil reached civilization, and lived happily ever after. Congrats!"...
             , "THE END")
         uiwait(w);

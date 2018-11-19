@@ -3,6 +3,7 @@
 [prow, pcol] = find(Mboard==sum(double('player')));
 Pposition = [prow, pcol]
 ed = false
+oldLevel = level;
 while ed == false
     h=figure(1);
     waitforbuttonpress
@@ -19,10 +20,6 @@ while ed == false
         %     4. a menu that pulls up when player inreacts with weapons
         %     5. detect when the player should level up
         % TEMPORARY: UNTIL INVENTORY IS MADE
-        if(Pposition==[1,15])%TEMPORARY, UNTILL OTHER LEVELS ARE MADE BISH
-            level = 4;
-            endscreen
-        end
         inventoryW
         switch move
             case 'uparrow'
@@ -34,11 +31,11 @@ while ed == false
                 if (Mboard(prow,pcol) == playerID)
                     continue;
                 else
+                    setBehavior
                     PlayerInteractCheck % I MOVED ALL OF THE USER INTERACTION (WEAPONS/FOOD/NPC TO PLAYERINTERACTCHECK
                 end
                 HPTimer
-                loadGB(Gboard)
-                
+                loadGB(Gboard)             
                 continue
             case 'downarrow'
                 setBehavior
@@ -50,7 +47,9 @@ while ed == false
                 if (Mboard(prow,pcol) == playerID)
                     continue;
                 else
+                    setBehavior
                     PlayerInteractCheck
+                    
                 end
                 loadGB(Gboard)
                 HPTimer
@@ -65,7 +64,8 @@ while ed == false
                 if (Mboard(prow,pcol) == playerID)
                     continue;
                 else
-                    PlayerInteractCheck
+                    setBehavior
+                    PlayerInteractCheck 
                 end
                 loadGB(Gboard)
                 HPTimer
@@ -77,10 +77,10 @@ while ed == false
                 [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
                 Pposition = [prow, pcol]
                 [index, ptype]=itemType (Mboard(prow,pcol),itemWID,itemFID,npcID);
-                %              missing if statement for weapons and food
                 if (Mboard(prow,pcol) == playerID)
                     continue;
                 else
+                    setBehavior
                     PlayerInteractCheck
                 end
                 loadGB(Gboard)
