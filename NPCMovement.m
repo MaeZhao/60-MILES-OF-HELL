@@ -70,82 +70,71 @@ switch atkStyle
             tempNrow = npos{d}(1)
             tempNcol = npos{d}(2)
             nPosOld = [npos{d}(1), npos{d}(2)];
-            rstep = 1
-            cstep =1
             %             NON EDGE ROW AND COL NPC's
-            if(tempNrow~=10 && tempNrow~=1 && tempNcol ~= 15 && tempNcol~= 1)
+            while(nPosOld == npos{d})
+            if((tempNrow<10 && tempNrow>1) && (tempNcol<15 && tempNcol>1))
                 if(moveRow == false) %rows
                     if(rstep == 1)
                         rstep = -1;
                         tempNrow = npos{d}(1)+rstep;
-                        [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol,npos{d}(1),npos{d}(2),"NPC", Mboard)
                     else % movement of row
                         rstep = 1;
                         tempNrow = npos{d}(1)+rstep;
-                        [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol,npos{d}(1),npos{d}(2),"NPC", Mboard)
+                        [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
                     end
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
                     moveRow = true
                 end
                 if(moveRow == true) % Moves col
                     if(npos{d}(2) >= 1 && cstep == 1)
                         cstep = -1;
                         tempNcol = npos{d}(2)+cstep;
-                        [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol,npos{d}(1),npos{d}(2),"NPC", Mboard)
                     else % movement of col
                         cstep = 1;
                         tempNcol = npos{d}(2)+cstep;
-                        tempNrow = npos{d}(1)
-                        [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol,npos{d}(1),npos{d}(2),"NPC", Mboard)
+                    end
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
+                    moveRow = false
+                end
+                %             end
+                %             IF ROW AND COL DID NOT MOVE: so all edge npcs or npcs with
+                %             something in its way (that isn't the player)
+            else
+                %             if(((tempNrow == npos{d}(1))||( tempNcol == npos{d}(1)) || Mboard(npos{d}(1),npos{d}(2)) ~= playerID))
+                % sets the movement scope(range) for npc's on edge rows and
+                % columns
+                % THIS IS SETS VALUES FOR EDGE NPC's
+                if(tempNrow == 10 ||tempNrow == 1)
+                    if(tempNrow==10)
+                       rstep = -1;
+                       tempNrow = npos{d}(1)+rstep;
+                    else
+                        rstep = 1;
+                       tempNrow = npos{d}(1)+rstep;
+                    end
+                    moveRow = true
+                elseif (tempNcol == 15 || tempNcol == 1)
+                    if(tempNcol==1)
+                        cstep = 1;
+                        tempNcol = npos{d}(2)+cstep;
+                    else
+                        cstep = -1;
+                        tempNcol = npos{d}(2)+cstep;
                     end
                     moveRow = false
                 end
-                [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
-                [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+                [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
             end
-            %             IF ROW AND COL DID NOT MOVE: so all edge npcs or npcs with
-            %             something in its way (that isn't the player)
-            if(((tempNrow == npos{d}(1))||( tempNcol == npos{d}(1)) || Mboard(npos{d}(1),npos{d}(2)) ~= playerID))
-                % sets the movement scope(range) for npc's on edge rows and
-                % columns
-                srMin = tempNrow-1
-                srMax =tempNrow+1
-                scMin = tempNcol-1
-                scMax = tempNcol+1
-%                 THIS IS SETS VALUES FOR EDGE NPC's
-                if(tempNrow + 3 > 10 ||tempNrow - 3 <1||tempNcol + 3 >15||tempNcol- 3 <1)
-                    if(tempNrow + 1 > 10 )
-                        tempNrow = srMin
-%                         moveRow = true
-                    elseif (tempNrow -1 <1 )
-                        tempNrow = srMax
-%                         moveRow = true
-                    end
-                    if (tempNcol + 1>15)
-                         tempNcol = scMin
-%                          moveRow = false
-                    elseif(tempNcol-1<1&&  moveRow == true)
-                         tempNcol = scMax
-%                          moveRow = false
-                    end
-                end
-%                 scope = Mboard((srMin:srMax),(scMin:scMax))
-%                 [scopeR, scopeC] = find(scope==0) % addresses of the 0's around npc
-%                 if(randi([1 2], 1) == 1)
-%                     rstep = scopeR(randi([1,length(scopeR)],1)) -tempNrow
-%                     cstep = 0
-%                 else
-%                     rstep = 0
-%                     cstep = scopeC(randi([1,length(scopeC)]),1)- tempNcol
-%                               NPC attacks player (if the player isn't already attacking):
-%                 end
-                [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow+rstep,tempNcol+cstep,npos{d}(1),npos{d}(2),"NPC", Mboard)
-                [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
-                [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+            [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)                
             end
-            if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == false
-                npcAttack %attacks player
-                [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
-                [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+%             if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == false
+%                 npcAttack %attacks player
+%                 [Mboard, Gboard] = moveplayer(nPosOld, Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
+%                 [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+%             end
+            if((npos{d}(1)~= nPosOld(1) || npos{d}(2)~=nPosOld(2)) && Mboard(npos{d}(1), npos{d}(2)) == 0)
+                    [Mboard, Gboard] = moveplayer(npos{d}, Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
+                    [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
             end
         end
 end

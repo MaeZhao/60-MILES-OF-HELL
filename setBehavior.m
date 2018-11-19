@@ -1,5 +1,7 @@
 % sets behavior of npc's for each level
 if(level == 1)
+    rstep = 1
+    cstep =1
     nID = npcID(find(npcList=="hornets"));
     atkStyle = npcType(find(npcList=="hornets"));
     moveRow = false; % used to alternate row and col moves
