@@ -36,7 +36,9 @@ while ed == false
                 else
                     PlayerInteractCheck % I MOVED ALL OF THE USER INTERACTION (WEAPONS/FOOD/NPC TO PLAYERINTERACTCHECK
                 end
+                HPTimer
                 loadGB(Gboard)
+                
                 continue
             case 'downarrow'
                 setBehavior
@@ -51,6 +53,7 @@ while ed == false
                     PlayerInteractCheck
                 end
                 loadGB(Gboard)
+                HPTimer
                 continue
             case 'leftarrow'
                 setBehavior
@@ -65,6 +68,7 @@ while ed == false
                     PlayerInteractCheck
                 end
                 loadGB(Gboard)
+                HPTimer
                 continue
             case 'rightarrow'
                 setBehavior
@@ -80,6 +84,7 @@ while ed == false
                     PlayerInteractCheck
                 end
                 loadGB(Gboard)
+                HPTimer
                 continue
         end
     end

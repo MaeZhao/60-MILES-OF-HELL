@@ -9,13 +9,18 @@ switch play
         player)
     waitfor(start);
 %     Initializing Variables
+
     % Player HP and hunger, might get rid of this and put information into
     % GameStart
     level = 1;
     PHealthPoint = 100;
     HungerPoint = 100;
+
+    HPtimer = 0
     LevelContent
     GameboardDetails
+    
+    
     case "No"
         msgbox({'Game over'})
         pause(3)
