@@ -5,7 +5,7 @@ PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(inde
 if(PHealthPoint<=0)
     PHealthPoint = 0
     d = length(npos)
-else
-    [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+% else
+%     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
     %loadGB % show this because nposition changed permanently 
 end
