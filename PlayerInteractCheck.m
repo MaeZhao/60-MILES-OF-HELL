@@ -1,5 +1,5 @@
 PHealthPoint
-if(ptype=='N' && ATTACK == false && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
+if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
     %(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level)
     loadGB(Gboard)
     if (npcType(npcID==Mboard(prow,pcol)) == "boss")
@@ -39,6 +39,10 @@ else
 end
 if(Mboard(1, 15) == 0)
     [Mboard, Gboard] = moveplayer([1, 15], Mboard, Gboard, itemFPic(4), npcID(4));
+end
+if((prow ==1 && pcol == 15) && inventoryW(3) ~= "keys")
+    td = msgbox("Hey, kid, you don't have my key. Comeback when you have my key.", "TOAD");
+    uiwait(td);
 end
 if(prow ==1 && pcol == 15 && inventoryW(3) == "keys")
     level = level + 1

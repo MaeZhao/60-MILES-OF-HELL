@@ -21,8 +21,8 @@ if (fightscreen == 1)
         if(inventoryW{i-1}~=itemListW{i-1})
             wbutton{i} = [inventoryW{i-1}]
         else
-            wbutton{i} = [strcat(inventoryW{i-1}, ": ",...
-            num2str(itemWhit(inventoryW==inventoryW{i-1})), " HP")]
+            in = i-1
+            wbutton{i} = [strcat(inventoryW{in}, ": ",num2str(itemWhit(double(in))), " HP")]
         end
     end
     weaponS = menu('Pick a Weapon. PLEASE DO NOT SELECT EMPTY BUTTONS', wbutton);

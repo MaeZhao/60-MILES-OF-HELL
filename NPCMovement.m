@@ -39,7 +39,7 @@ switch atkStyle
                     [npos{d}(1),npos{d}(2)] = OutOfBounds(npos{d}(1),tempNcol,npos{d}(1),npos{d}(2), "NPC", Mboard)% if out of bounds, address does not change
                 end
             end
-                if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == true
+                if Mboard(npos{d}(1),npos{d}(2)) == playerID 
                     npcAttack %attacks player
 %                     [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
@@ -58,7 +58,7 @@ switch atkStyle
     case "picker" % attacks if players are 1 space horizontally/vertically away
         for d = 1: length(npos)
             if((abs(npos{d}(1)-Pposition(1)) == 1 && npos{d}(2)== Pposition(2))...
-                    || (abs(npos{d}(2)-Pposition(2)) == 1 && npos{d}(1)== Pposition(1)) && ATTACK == false)
+                    || (abs(npos{d}(2)-Pposition(2)) == 1 && npos{d}(1)== Pposition(1)))
                 npcAttack
 %                 [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
                 [Mboard, Gboard] = deleteOldPos(npos{d},Mboard, Gboard, grass);
