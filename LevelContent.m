@@ -25,7 +25,7 @@ if (level == 1)
     for i = 1:length(itemListF)
     itemFID(i)= sum(double(char(itemListF(i))))
     end
-    npcFreq= [3,3,3,1]
+    npcFreq= [5,6,6,1]
     itemWhit = [-2, -2, -8]
     
 end

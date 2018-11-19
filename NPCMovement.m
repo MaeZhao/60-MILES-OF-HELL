@@ -19,11 +19,11 @@ switch atkStyle
             nPosOld = [npos{d}(1),npos{d}(2)];
             if(moveRow == false)
                 if(npos{d}(1) > Pposition(1))
-                    moveRow = true; % I want to alternate the row and column moves
+%                     moveRow = true; % I want to alternate the row and column moves
                     tempNrow = npos{d}(1)-1
                     [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2),"NPC", Mboard) % if out of bounds, address does not change
                 elseif (npos{d}(1) < Pposition(1))
-                    moveRow = true;
+%                     moveRow = true;
                     tempNrow = npos{d}(1)+1
                     [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2), "NPC", Mboard) % if out of bounds, address does not change
                 end
@@ -38,17 +38,15 @@ switch atkStyle
                     tempNcol = npos{d}(1)+1
                     [npos{d}(1),npos{d}(2)] = OutOfBounds(npos{d}(1),tempNcol,npos{d}(1),npos{d}(2), "NPC", Mboard)% if out of bounds, address does not change
                 end
+            end
                 if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == true
                     npcAttack %attacks player
-                    [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
+%                     [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
                     
                 end
-            end
             %           NPC attacks player (if the player isn't already attacking):
-            %             if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == false
-            %                 npcAttack %attacks player
-            %             end
+            %             
             %           IN OTHER WORDS when NPC is not attacking,Mboard and Gboard only
             %           changes when the nposition changes
             if(nPosOld(1) ~= npos{d}(1) || nPosOld(2) ~= npos{d}(2)&& Mboard(npos{d}(1),npos{d}(2)) ~= playerID)
@@ -56,13 +54,14 @@ switch atkStyle
                 [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
             end
         end
+%         end
     case "picker" % attacks if players are 1 space horizontally/vertically away
         for d = 1: length(npos)
             if((abs(npos{d}(1)-Pposition(1)) == 1 && npos{d}(2)== Pposition(2))...
                     || (abs(npos{d}(2)-Pposition(2)) == 1 && npos{d}(1)== Pposition(1)) && ATTACK == false)
                 npcAttack
-                [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
-                %[Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+%                 [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
+                [Mboard, Gboard] = deleteOldPos(npos{d},Mboard, Gboard, grass);
             end
         end
     case "nester" %stays in relatively the same positions
@@ -136,6 +135,6 @@ switch atkStyle
             end
         end
 end
-clear nID atkStyle tempNrow tempNcol;
+clear nID atkStyle tempNrow tempNcol moveRow;
 
 
