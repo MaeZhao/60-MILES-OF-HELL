@@ -38,7 +38,7 @@ switch atkStyle
                     tempNcol = npos{d}(1)+1
                     [npos{d}(1),npos{d}(2)] = OutOfBounds(npos{d}(1),tempNcol,npos{d}(1),npos{d}(2), "NPC", Mboard)% if out of bounds, address does not change
                 end
-                if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == false
+                if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == true
                     npcAttack %attacks player
                     [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
@@ -59,10 +59,10 @@ switch atkStyle
     case "picker" % attacks if players are 1 space horizontally/vertically away
         for d = 1: length(npos)
             if((abs(npos{d}(1)-Pposition(1)) == 1 && npos{d}(2)== Pposition(2))...
-                    || (abs(npos{d}(2)-Pposition(2)) == 1 && npos{d}(1)== Pposition(1)))
+                    || (abs(npos{d}(2)-Pposition(2)) == 1 && npos{d}(1)== Pposition(1)) && ATTACK == false)
                 npcAttack
                 [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
-                [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
+                %[Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
             end
         end
     case "nester" %stays in relatively the same positions
@@ -104,36 +104,40 @@ switch atkStyle
             end
             %             IF ROW AND COL DID NOT MOVE: so all edge npcs or npcs with
             %             something in its way (that isn't the player)
-            if(((tempNrow == npos{d}(1)&& moveRow == true)||( tempNcol == npos{d}(1) && moveRow == false) &&  Mboard(npos{d}(1),npos{d}(2)) ~= playerID))
+            if(((tempNrow == npos{d}(1))||( tempNcol == npos{d}(1)) || Mboard(npos{d}(1),npos{d}(2)) ~= playerID))
                 % sets the movement scope(range) for npc's on edge rows and
                 % columns
                 srMin = tempNrow-1
                 srMax =tempNrow+1
                 scMin = tempNcol-1
                 scMax = tempNcol+1
-                % THIS IS SETS VALUES FOR EDGE NPC's
-                if(tempNrow + 1 >10 ||tempNrow -1 <1||tempNcol + 1>15||tempNcol-1<1)
-                    if(tempNrow + 1 > 10)
-                        srMax = 10
-                    elseif (tempNrow -1 <1)
-                        srMin = 1
+%                 THIS IS SETS VALUES FOR EDGE NPC's
+                if(tempNrow + 3 > 10 ||tempNrow - 3 <1||tempNcol + 3 >15||tempNcol- 3 <1)
+                    if(tempNrow + 1 > 10 )
+                        tempNrow = srMin
+%                         moveRow = true
+                    elseif (tempNrow -1 <1 )
+                        tempNrow = srMax
+%                         moveRow = true
                     end
                     if (tempNcol + 1>15)
-                        scMax = 15
-                    elseif(tempNcol-1<1)
-                        scMin = 1
+                         tempNcol = scMin
+%                          moveRow = false
+                    elseif(tempNcol-1<1&&  moveRow == true)
+                         tempNcol = scMax
+%                          moveRow = false
                     end
                 end
-                scope = Mboard((srMin:srMax),(scMin:scMax))
-                [scopeR, scopeC] = find(scope==0) % addresses of the 0's around npc
-                if(randi([1 2], 1) == 1)
-                    rstep = scopeR(randi([1,length(scopeR)],1)) -tempNrow
-                    cstep = 0
-                else
-                    rstep = 0
-                    cstep = scopeC(randi([1,length(scopeC)]),1)- tempNcol
-                    %           NPC attacks player (if the player isn't already attacking):
-                end
+%                 scope = Mboard((srMin:srMax),(scMin:scMax))
+%                 [scopeR, scopeC] = find(scope==0) % addresses of the 0's around npc
+%                 if(randi([1 2], 1) == 1)
+%                     rstep = scopeR(randi([1,length(scopeR)],1)) -tempNrow
+%                     cstep = 0
+%                 else
+%                     rstep = 0
+%                     cstep = scopeC(randi([1,length(scopeC)]),1)- tempNcol
+%                               NPC attacks player (if the player isn't already attacking):
+%                 end
                 [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow+rstep,tempNcol+cstep,npos{d}(1),npos{d}(2),"NPC", Mboard)
                 [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
                 [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);

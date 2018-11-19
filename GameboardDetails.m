@@ -16,25 +16,13 @@ if level >= 1
     Mboard(10,1) = playerID;
     
 %% Place NPC's
-[Mboard, Gboard] = drop(npcID, itemNPCPic,npcFreq, Mboard, Gboard)
+[Mboard, Gboard] = drop(npcID, itemNPCPic,npcFreq, Mboard, Gboard, npcType)
 %% Place Foods and Weapons
 % test with default
-% if level ==1 
-%        itemW = itemListW1
-%        itemF=  itemListF1
-% elseif level == 2
-%        itemW= itemListW2
-%        itemF= itemListF2
-% elseif level == 3
-%        itemW= itemListW3
-%        itemF=  itemListF3
-% end
-[Mboard, Gboard] = drop(itemWID, itemWPic,genericFreq, Mboard, Gboard)
-[Mboard, Gboard] = drop(itemFID, itemFPic,genericFreq, Mboard, Gboard)
+[Mboard, Gboard] = drop(itemWID, itemWPic,genericFreq, Mboard, Gboard, genericType)
+[Mboard, Gboard] = drop(itemFID, itemFPic,genericFreq, Mboard, Gboard, genericType)
 %% Place finalbloc
 %(itemName, row, col, board)
-finalbloc = imread('All_Sprites_PNG\no_texture.png');
-Gboard{1,15} = finalbloc;
 Mboard = InputMBoard('finalbloc', 1, 15, Mboard);
 end
 loadGB(Gboard);

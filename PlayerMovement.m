@@ -2,8 +2,8 @@
 % that way prow and pcol always equals to the current location of player
 [prow, pcol] = find(Mboard==sum(double('player')));
 Pposition = [prow, pcol]
-pspace = randi([5 10])
-for i = 1: pspace
+ed = false
+while ed == false
     h=figure(1);
     waitforbuttonpress
     move = get(h, 'CurrentKey')
@@ -26,10 +26,10 @@ for i = 1: pspace
         inventoryW
         switch move
             case 'uparrow'
+                setBehavior
                 prow = prow-1
                 [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
                 Pposition = [prow, pcol]
-                
                 [index, ptype]=itemType(Mboard(prow,pcol),itemWID,itemFID,npcID);
                 if (Mboard(prow,pcol) == playerID)
                     continue;
@@ -39,6 +39,7 @@ for i = 1: pspace
                 loadGB(Gboard)
                 continue
             case 'downarrow'
+                setBehavior
                 ocol = pcol
                 prow = prow+1
                 [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard) %check if player is in bounds if not inbounds player does not move
@@ -52,6 +53,7 @@ for i = 1: pspace
                 loadGB(Gboard)
                 continue
             case 'leftarrow'
+                setBehavior
                 ocol = pcol
                 pcol = pcol-1
                 [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
@@ -65,6 +67,7 @@ for i = 1: pspace
                 loadGB(Gboard)
                 continue
             case 'rightarrow'
+                setBehavior
                 ocol = pcol
                 pcol = pcol+1
                 [prow,pcol] = OutOfBounds(prow, pcol,oldposition(1),oldposition(2), "player", Mboard)
@@ -81,5 +84,3 @@ for i = 1: pspace
         end
     end
 end
-PlayerMovement
-

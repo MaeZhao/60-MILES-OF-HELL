@@ -1,17 +1,17 @@
 % sets behavior of npc's for each level
 if(level == 1)
     nID = npcID(find(npcList=="hornets"));
-    atkStyle = "swarmer"
+    atkStyle = npcType(find(npcList=="hornets"));
     moveRow = false; % used to alternate row and col moves
     NPCMovement
     
     nID = npcID(find(npcList=="snakes"));
-    atkStyle = "picker"
+    atkStyle = npcType(find(npcList=="snakes"));
     moveRow = false; % used to alternate row and col moves
     NPCMovement
     
     nID = npcID(find(npcList=="spiders"));
-    atkStyle = "nester"
+    atkStyle = npcType(find(npcList=="spiders"));
     moveRow = false; % used to alternate row and col moves
     NPCMovement
 end

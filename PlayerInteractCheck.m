@@ -28,7 +28,6 @@ else
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 end
 % loadGB(Gboard)
-setBehavior
 endscreen
  loadGB(Gboard)
 
