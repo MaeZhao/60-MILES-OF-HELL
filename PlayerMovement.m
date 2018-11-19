@@ -36,7 +36,9 @@ for i = 1: pspace
                 else
                     PlayerInteractCheck % I MOVED ALL OF THE USER INTERACTION (WEAPONS/FOOD/NPC TO PLAYERINTERACTCHECK
                 end
+                HPTimer
                 loadGB(Gboard)
+                
                 continue
             case 'downarrow'
                 ocol = pcol
@@ -50,6 +52,7 @@ for i = 1: pspace
                     PlayerInteractCheck
                 end
                 loadGB(Gboard)
+                HPTimer
                 continue
             case 'leftarrow'
                 ocol = pcol
@@ -63,6 +66,7 @@ for i = 1: pspace
                     PlayerInteractCheck
                 end
                 loadGB(Gboard)
+                HPTimer
                 continue
             case 'rightarrow'
                 ocol = pcol
@@ -77,6 +81,7 @@ for i = 1: pspace
                     PlayerInteractCheck
                 end
                 loadGB(Gboard)
+                HPTimer
                 continue
         end
     end
