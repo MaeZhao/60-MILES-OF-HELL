@@ -1,3 +1,4 @@
+PHealthPoint
 if(ptype=='N' && ATTACK == false && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
     %(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level)
     loadGB(Gboard)
