@@ -1,16 +1,12 @@
 % End Screen
 [prow, pcol] = find(Mboard==playerID)
-if(prow ==1 && pcol == 15)
-    level = level + 1
-end
-if(level>1||  PHealthPoint <= 0)
+if((level>1 && inventoryW(3) == "keys" )|| PHealthPoint <= 0)
     if (PHealthPoint <= 0)
         w = msgbox("Oh no!! Chick Lil died!"...
             , "THE END")
         uiwait(w);
     elseif level > 1
-        w = msgbox("After 3 hard nights,Chick Lil reached civilization, and lived happily ever after. Congrats!"...
-            , "THE END")
+        w = msgbox("After giving the Toad his key, Chicken Lil woke up the next morning in the hospital, alive and safe.", "THE END")
         uiwait(w);
     
     end

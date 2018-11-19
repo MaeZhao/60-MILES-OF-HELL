@@ -9,6 +9,7 @@ function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW
 %   1. flee
 %   2. fight
 %       -> and then gives list of weapon options
+weap = "nothing"
 button{1} = ['fight'];
 button{2} = ['flee'];
 fightscreen = menu(strcat("A ", NPCname," approaches! It has ",...
@@ -32,29 +33,29 @@ if (fightscreen == 1)
                 weap = "hands"
                 PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
             case 2
+                weap = inventoryW{1}
+                if(inventoryW{1} == " ")
+                    PHealthPoint = battle(-100, NPCHit,NPCHP, PlayerHP);
+                else
+                    PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
+                end
+            case 3
                 weap = inventoryW{2}
                 if(inventoryW{2} == " ")
                     PHealthPoint = battle(-100, NPCHit,NPCHP, PlayerHP);
                 else
                     PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
                 end
-            case 3
+            case 4
                 weap = inventoryW{3}
                 if(inventoryW{3} == " ")
-                    PHealthPoint = battle(-100, NPCHit,NPCHP, PlayerHP);
-                else
-                    PHealthPoint = battle(-2, NPCHit,NPCHP, PlayerHP);
-                end
-            case 4
-                weap = inventoryW{4}
-                if(inventoryW{4} == " ")
                    PHealthPoint = battle(-100, NPCHit,NPCHP, PlayerHP);
                 else
                 PHealthPoint = battle(-8, NPCHit,NPCHP, PlayerHP);
                 end
             case 5
-                weap = inventoryW{5}
-                if(inventoryW{5} == " ")
+                weap = inventoryW{4}
+                if(inventoryW{4} == " ")
                    PHealthPoint = battle(-100, NPCHit,NPCHP, PlayerHP);
                 else
                 PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);

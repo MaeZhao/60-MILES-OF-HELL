@@ -26,4 +26,10 @@ if level >= 1
 Mboard = InputMBoard('finalbloc', 1, 15, Mboard);
 end
 loadGB(Gboard);
+if(level == 1)
+    l1mission = msgbox("Mega Toad: Hey! You, chicken! Listen up, I'll let you out of this part of the forest if you give me back the key I lost." );
+    uiwait(l1mission);
+    l1mission2 = msgbox("Bring the Mega Toad on the upper left his key.")
+    uiwait(l1mission2);
+end
 PlayerMovement

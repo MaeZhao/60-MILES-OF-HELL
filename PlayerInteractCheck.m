@@ -2,17 +2,23 @@ PHealthPoint
 if(ptype=='N' && ATTACK == false && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
     %(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level)
     loadGB(Gboard)
-    PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level,...
-       npcList,itemListW, itemWhit, npcHP,npcATk)
-    loadGB(Gboard)
-    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player,playerID);
-    [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-    ATTACK = true
-    endscreen
+    if (npcType(npcID==Mboard(prow,pcol)) == "boss")
+        PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level,...
+            npcList,itemListW, itemWhit, npcHP,npcATk)
+        endscreen
+    else
+        PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level,...
+            npcList,itemListW, itemWhit, npcHP,npcATk)
+        endscreen
+        loadGB(Gboard)
+        [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player,playerID);
+        [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+        ATTACK = true
+    end
 elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) %Weapons
     ATTACK = false;
     %given the ID number that we find on Mboard, I would find the position
-    inventoryW(index) = itemListW(index); % inventory update
+    inventoryW(index) = itemListW(itemWID==Mboard(prow,pcol)); % inventory update
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     
@@ -31,7 +37,15 @@ else
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 end
+if(Mboard(1, 15) == 0)
+    [Mboard, Gboard] = moveplayer([1, 15], Mboard, Gboard, itemFPic(4), npcID(4));
+end
+if(prow ==1 && pcol == 15 && inventoryW(3) == "keys")
+    level = level + 1
+    endscreen
+end
 % loadGB(Gboard)
 % setBehavior
+endscreen
 loadGB(Gboard)
 
