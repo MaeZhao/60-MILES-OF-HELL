@@ -71,7 +71,6 @@ switch atkStyle
             tempNcol = npos{d}(2)
             nPosOld = [npos{d}(1), npos{d}(2)];
             %             NON EDGE ROW AND COL NPC's
-            while(nPosOld == npos{d})
             if((tempNrow<10 && tempNrow>1) && (tempNcol<15 && tempNcol>1))
                 if(moveRow == false) %rows
                     if(rstep == 1)
@@ -126,7 +125,6 @@ switch atkStyle
                 [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
             end
             [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)                
-            end
 %             if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == false
 %                 npcAttack %attacks player
 %                 [Mboard, Gboard] = moveplayer(nPosOld, Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
