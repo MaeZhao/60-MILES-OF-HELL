@@ -1,7 +1,7 @@
-% We may not need this
+% Checks if the spot is availible
 if MBoard(row,col)==0
-    available=true;     %Space opened for player 1 or 2
+    available=true;     %Space opened for player
 else
-    available = false; %Prevent Player 1 or 2 from taking same space
+    available = false; %Prevent player from taking same space
     disp('pick again')
 end 
