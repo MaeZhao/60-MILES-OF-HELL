@@ -77,6 +77,9 @@ while ed == false
                 loadGB(Gboard)
                 HPTimer
                 continue
+            case 'i'
+                msgbox(inventoryW,'Your Inventory', 'help', 'modal')
+                continue;
         end
     end
 end
