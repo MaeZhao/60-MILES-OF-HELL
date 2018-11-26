@@ -1,3 +1,4 @@
+% see dependency report for input output
 PHealthPoint
 if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
     loadGB(Gboard)
