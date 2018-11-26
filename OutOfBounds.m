@@ -1,3 +1,4 @@
+% see dependency report for input output
 function [prow,pcol] = OutOfBounds(tprow,tpcol,oldposition1,oldposition2, type, mboard)
 %OUTOFBOUNDS: checks if NPC or player is out of bounds
 %   case player only checks if out of bounds
