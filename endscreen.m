@@ -1,4 +1,7 @@
 % End Screen
+if(sum(double(char(forest.Running))) == sum(double(char('off'))))
+   forest.play;
+end
 [prow, pcol] = find(Mboard==playerID)
 if(((level>1 && inventoryW(3) == "keys" )|| PHealthPoint <= 0)&& ed == false)
     if (PHealthPoint <= 0)
@@ -14,6 +17,7 @@ if(((level>1 && inventoryW(3) == "keys" )|| PHealthPoint <= 0)&& ed == false)
         uiwait(w);
     
     end
+    forest.pause
     ed = true
 %     gameEnd = questdlg("Do you want to play again?",'Play Again?', "Yes",...
 %         "No", "Yes")

@@ -1,5 +1,8 @@
 %% Initializing GBoard
-figure('WindowStyle', 'modal'); 
+% plays music
+[y,f] = audioread('rainforest_ambience-GlorySunz.wav');
+forest = audioplayer(y,f);
+forest.play;
 % Creates the board
 grass = imread('All_Sprites_PNG\grass_texture.png');
 Gboard = cell(10,15);

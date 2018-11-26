@@ -2,7 +2,7 @@
 % that way prow and pcol always equals to the current location of player
 [prow, pcol] = find(Mboard==sum(double('player')));
 Pposition = [prow, pcol]
-ed = false
+ed = false % if ed is true, end game
 oldLevel = level;
 while ed == false
     h=figure(1);
@@ -49,7 +49,6 @@ while ed == false
                 else
                     setBehavior
                     PlayerInteractCheck
-                    
                 end
                 loadGB(Gboard)
                 HPTimer

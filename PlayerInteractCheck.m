@@ -11,7 +11,7 @@ if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
             npcList,itemListW, itemWhit, npcHP,npcATk)
         endscreen
         loadGB(Gboard)
-        [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player,playerID);
+        [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player,playerID, "player");
         [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
         ATTACK = true
     end
@@ -19,7 +19,7 @@ elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) %
     ATTACK = false;
     %given the ID number that we find on Mboard, I would find the position
     inventoryW(index) = itemListW(itemWID==Mboard(prow,pcol)); % inventory update
-    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
+    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID, "player");
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     
 elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)%Food
@@ -29,20 +29,27 @@ elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)%F
     Food = msgbox(strcat("You ate a ", itemListF(itemFID==Mboard(prow,pcol)), " you gained ",...
         num2str(points)," health. Your total health is: " , num2str(PHealthPoint)));
     uiwait(Food);
-    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
+    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID, "player");
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 else
     PHealthPoint
     ATTACK = false;
-    [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID);
-    [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+    if(Pposition(1) ~= 1 || Pposition(2) ~= 15)
+        [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID, "player");
+        [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
+    else
+        Pposition(1) = oldposition(1)
+        Pposition(2) = oldposition(2)
+    end
+    
+    if(Mboard(1, 15) == 0)
+     [Mboard, Gboard] = moveplayer([1, 15], Mboard, Gboard, itemFPic(4), npcID(4), "player");
+    end
 end
-if(Mboard(1, 15) == 0)
-    [Mboard, Gboard] = moveplayer([1, 15], Mboard, Gboard, itemFPic(4), npcID(4));
-end
-if((prow ==1 && pcol == 15) && inventoryW(3) ~= "keys")
+if((prow ==1 && pcol == 15) && (inventoryW(3) ~= "keys"))
     td = msgbox("Hey, kid, you don't have my key. Comeback when you have my key.", "TOAD");
     uiwait(td);
+    
 end
 if(prow ==1 && pcol == 15 && inventoryW(3) == "keys")
     level = level + 1

@@ -50,7 +50,7 @@ switch atkStyle
             %           IN OTHER WORDS when NPC is not attacking,Mboard and Gboard only
             %           changes when the nposition changes
             if(nPosOld(1) ~= npos{d}(1) || nPosOld(2) ~= npos{d}(2)&& Mboard(npos{d}(1),npos{d}(2)) ~= playerID)
-                [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
+                [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID,"NPC"); %use moveplayer to move NPCS
                 [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
             end
         end
@@ -130,7 +130,7 @@ switch atkStyle
 %                 [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
 %             end
             if((npos{d}(1)~= nPosOld(1) || npos{d}(2)~=nPosOld(2)) && Mboard(npos{d}(1), npos{d}(2)) == 0)
-                    [Mboard, Gboard] = moveplayer(npos{d}, Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
+                    [Mboard, Gboard] = moveplayer(npos{d}, Mboard, Gboard, npic, nID, "NPC"); %use moveplayer to move NPCS
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
             end
         end
