@@ -1,3 +1,4 @@
+% see dependency report for input output
 function [Mboard, Gboard] = drop(itemID,itemPics, itemFreq,mboard, gboard, npcType)%itemList needed to generate pictures
 % DROP: weapons/food/npcs randomly onto mboard calls PLACE
 for i=1:length(itemID)
