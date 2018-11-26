@@ -1,3 +1,4 @@
+% see dependency report for input output
 function loadGB(Gboard)
 %LOADGB: updates the GBoard visually 
 imshow([Gboard{1,:};Gboard{2,:};Gboard{3,:};Gboard{4,:};Gboard{5,:};...
