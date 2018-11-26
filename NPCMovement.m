@@ -45,7 +45,6 @@ switch atkStyle
                     
                 end
             %           NPC attacks player (if the player isn't already attacking):
-            %             
             %           IN OTHER WORDS when NPC is not attacking,Mboard and Gboard only
             %           changes when the nposition changes
             if(nPosOld(1) ~= npos{d}(1) || nPosOld(2) ~= npos{d}(2)&& Mboard(npos{d}(1),npos{d}(2)) ~= playerID)
@@ -67,7 +66,7 @@ switch atkStyle
             tempNrow = npos{d}(1)
             tempNcol = npos{d}(2)
             nPosOld = [npos{d}(1), npos{d}(2)];
-            %             NON EDGE ROW AND COL NPC's
+            % NON EDGE ROW AND COL NPC's
             if((tempNrow<10 && tempNrow>1) && (tempNcol<15 && tempNcol>1))
                 if(moveRow == false) %rows
                     if(rstep == 1)

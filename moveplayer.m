@@ -3,8 +3,8 @@ function [Mboard, Gboard]= moveplayer (Pposition, mboard, gboard, player, player
 %   Must input grass, and player (which are png files) to be able to change
 %   Gboard visualy
 if(type== "player")
-[oldposition1,oldposition2] = find(mboard==playerID)
-[Pposition(1), Pposition(2)] = OutOfBounds(Pposition(1), Pposition(2),oldposition1,oldposition2, type , mboard)
+[oldposition1,oldposition2] = find(mboard==playerID);
+[Pposition(1), Pposition(2)] = OutOfBounds(Pposition(1), Pposition(2),oldposition1,oldposition2, type , mboard);
 end
 mboard(Pposition(1), Pposition(2)) = playerID; % sum(double('player')) = PLAYERID
 gboard{Pposition(1), Pposition(2)} = player;

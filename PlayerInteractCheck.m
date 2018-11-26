@@ -1,19 +1,18 @@
 PHealthPoint
-if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) % NPC
-    %(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level)
+if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
     loadGB(Gboard)
     if (npcType(npcID==Mboard(prow,pcol)) == "boss")
         PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level,...
-            npcList,itemListW, itemWhit, npcHP,npcATk)
+            npcList,itemListW, itemWhit, npcHP,npcATk);
         endscreen
     else
         PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level,...
-            npcList,itemListW, itemWhit, npcHP,npcATk)
+            npcList,itemListW, itemWhit, npcHP,npcATk);
         endscreen
         loadGB(Gboard)
         [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player,playerID, "player");
         [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
-        ATTACK = true
+        ATTACK = true;
     end
 elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) %Weapons
     ATTACK = false;
@@ -23,23 +22,22 @@ elseif(ptype == 'W'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID) %
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     
 elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)%Food
-    ATTACK = false;
-    points = randi([itemFHunger(1, itemFID==Mboard(prow,pcol)), itemFHunger(2,itemFID==Mboard(prow,pcol))], 1);
-    PHealthPoint = points + PHealthPoint
+    points = randi([itemFHunger(1, itemFID==Mboard(prow,pcol)),...
+        itemFHunger(2,itemFID==Mboard(prow,pcol))], 1);
+    PHealthPoint = points + PHealthPoint;
     Food = msgbox(strcat("You ate a ", itemListF(itemFID==Mboard(prow,pcol)), " you gained ",...
         num2str(points)," health. Your total health is: " , num2str(PHealthPoint)));
     uiwait(Food);
     [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID, "player");
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 else
-    PHealthPoint
-    ATTACK = false;
-    if(Pposition(1) ~= 1 || Pposition(2) ~= 15)
+    PHealthPoint;
+    if(Pposition(1) ~= 1 || Pposition(2) ~= 15 && find(Mboard==playerID)~= 0) % IF PLAYER HAS NOT REACHED THE END, move the player
         [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID, "player");
         [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     else
-        Pposition(1) = oldposition(1)
-        Pposition(2) = oldposition(2)
+        Pposition(1) = oldposition(1);
+        Pposition(2) = oldposition(2);
     end
     
     if(Mboard(1, 15) == 0)
@@ -52,7 +50,7 @@ if((prow ==1 && pcol == 15) && (inventoryW(3) ~= "keys"))
     
 end
 if(prow ==1 && pcol == 15 && inventoryW(3) == "keys")
-    level = level + 1
+    level = level + 1;
     endscreen
 end
 
