@@ -1,3 +1,4 @@
+% see dependency report for input output
 function [Mboard, Gboard]= moveplayer (Pposition, mboard, gboard, player, playerID, type)
 %MOVEPLAYER: moves player OR NPC's one square on map
 %   Must input grass, and player (which are png files) to be able to change
