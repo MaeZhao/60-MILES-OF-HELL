@@ -1,4 +1,4 @@
-cdependency report for input output
+% see dependency report for input output
 
 function UpdateHealth(healthUD)
 % UPDATEHEALTH: updates health
