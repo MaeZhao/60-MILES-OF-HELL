@@ -1,3 +1,4 @@
+% see dependency report for input output
 HPtimer = HPtimer + 1
 if HPtimer == 5
     PHealthPoint=PHealthPoint-5
