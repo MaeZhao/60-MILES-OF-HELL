@@ -1,3 +1,4 @@
+% see dependency report for input output
 %% Level Content
 % Loads all level content in the game
 ATTACK = false; % used to check whether or not a player is attack or being attacked
