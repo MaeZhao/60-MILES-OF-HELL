@@ -1,14 +1,6 @@
 function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level,...
     npcList,itemListW, itemWhit, npcHP,npcATk)
-%FIGHTSCRN fight menu that gives 3 options NEEDS HP TO BE WRITTEN
-%   TO BRIANNA:1. create inventoryW is the weapon inventory of the player( if
-%   player touches space with weapon, inventoryW should update to contain
-%   that weapon. 2. as you make inventoryW make a corresponding
-%   inventoryhitW (stores the -HP damage of your weapon IN THE ORDER of
-%   inventoryW)
-%   1. flee
-%   2. fight
-%       -> and then gives list of weapon options
+
 weap = "nothing"
 button{1} = ['fight'];
 button{2} = ['flee'];
@@ -25,6 +17,7 @@ if (fightscreen == 1)
             wbutton{i} = [strcat(inventoryW{in}, ": ",num2str(itemWhit(double(in))), " HP")]
         end
     end
+end
     weaponS = menu('Pick a Weapon. PLEASE DO NOT SELECT EMPTY BUTTONS', wbutton);
     % WE NEED TO HAVE included other levels
     if(level == 1)
@@ -62,25 +55,7 @@ if (fightscreen == 1)
                 end
         end
     end
-% elseif (level==2)
-%     switch weaponS
-%         case 1
-%             PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
-%         case 2
-%             PHealthPoint = battle(-10, NPCHit,NPCHP, PlayerHP);
-%         case 3
-%             PHealthPoint = battle(-13, NPCHit,NPCHP, PlayerHP);
-%     end
-% elseif (level==3)
-%     switch weaponS
-%         case 1
-%             PHealthPoint = battle(-5, NPCHit,NPCHP, PlayerHP);
-%         case 2
-%             PHealthPoint = battle(-11, NPCHit,NPCHP, PlayerHP);
-%         case 3
-%             PHealthPoint = battle(-30, NPCHit,NPCHP, PlayerHP);
-%     end
-end
+
 if( weap == "nothing")
     PHealthPoint = PlayerHP + randi([-5,0]);
     menu(strcat("You fled. Player HP is: ", num2str(PHealthPoint)), 'OK')

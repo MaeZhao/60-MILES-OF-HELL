@@ -10,16 +10,7 @@ while ed == false
     move = get(h, 'CurrentKey')
     if(move ~= 0)
         oldposition = Pposition
-        % needs error check that makes sure that
-        %     1. player stays within the map (DONE)
-        %     2. A menu that pulls up when player interacts with food(see Fightscrn
-        %     for an example of how to do it)
-        %           -> Also an player items inventory
-        %     3. More work needs to be done with  enemies (see Fightscrn)
-        %-> Also an player weapons inventory
-        %     4. a menu that pulls up when player inreacts with weapons
-        %     5. detect when the player should level up
-        % TEMPORARY: UNTIL INVENTORY IS MADE
+     
         inventoryW
         switch move
             case 'uparrow'
@@ -32,7 +23,7 @@ while ed == false
                     continue;
                 else
                     setBehavior
-                    PlayerInteractCheck % I MOVED ALL OF THE USER INTERACTION (WEAPONS/FOOD/NPC TO PLAYERINTERACTCHECK
+                    PlayerInteractCheck 
                 end
                 HPTimer
                 loadGB(Gboard)             
