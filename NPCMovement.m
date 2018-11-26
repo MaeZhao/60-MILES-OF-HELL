@@ -1,3 +1,4 @@
+% see dependency report for input output
 % needs to happen with EVERY single level
 % 4 types of attackers: swarmer, picker,nester, tank
 % stores all rows and columns of all NPC's of npcID
