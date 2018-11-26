@@ -34,7 +34,7 @@ elseif(ptype == 'F'&& Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)%F
     [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
 else
     PHealthPoint;
-    if(Pposition(1) ~= 1 || Pposition(2) ~= 15 && find(Mboard==playerID)~= 0) % IF PLAYER HAS NOT REACHED THE END, move the player
+    if((Pposition(1) ~= 1 || Pposition(2) ~= 15)) % IF PLAYER HAS NOT REACHED THE END, move the player
         [Mboard, Gboard] = moveplayer(Pposition, Mboard, Gboard, player, playerID, "player");
         [Mboard, Gboard] = deleteOldPos(oldposition,Mboard, Gboard, grass);
     else
@@ -50,12 +50,12 @@ if(isempty(pcol) || isempty(prow))% if player is attacked by 2 enemies at once a
     prow = oldposition(1)
     pcol = oldposition(2)
 end
-if((prow ==1 && pcol == 15) && (inventoryW(3) ~= "keys"))
+if((prow ==1 && pcol == 15) && (isempty(find(inventoryW=='keys'))))
     td = msgbox("Hey, kid, you don't have my key. Comeback when you have my key.", "TOAD");
     uiwait(td);
     
 end
-if(prow ==1 && pcol == 15 && inventoryW(3) == "keys")
+if(prow ==1 && pcol == 15 && ~(isempty(find(inventoryW=='keys'))))
     level = level + 1;
     endscreen
 end

@@ -21,6 +21,7 @@ if(((level>1 && inventoryW(3) == "keys" )|| PHealthPoint <= 0)&& ed == false)
     dne = msgbox("Thank you for playing :)", "Thank you");
     uiwait(dne);
     forest.pause
+    forest.stop
     close all hidden
     ed = true;
 %     gameEnd = questdlg("Do you want to play again?",'Play Again?', "Yes",...
