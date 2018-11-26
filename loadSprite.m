@@ -1,3 +1,4 @@
+% see dependency report for input output
 function [itemPicList] = loadSprite(itemList,type, level)
 % LOADSPRITE: creates the sprite picture list
 %   Uses the item type from ITEM TYPE (character W, F, or N)
