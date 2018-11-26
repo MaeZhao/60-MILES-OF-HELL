@@ -1,3 +1,4 @@
+% see dependency report for input output
 function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level,...
     npcList,itemListW, itemWhit, npcHP,npcATk)
 %FIGHTSCRN: generates the fight screen the players see
