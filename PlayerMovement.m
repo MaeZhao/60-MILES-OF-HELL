@@ -1,3 +1,4 @@
+% see dependency report for input output
 %% Player Movement 
 % that way prow and pcol always equals to the current location of player
 [prow, pcol] = find(Mboard==sum(double('player')));
