@@ -1,3 +1,4 @@
+% see dependency report for input output
 % ATTACKS players to be used in NPC Movements
 [index, ~] = itemType(nID, [0,0], [0,0], npcID)
 PHealthPoint = Fightscrn(npcList(index), PHealthPoint, npcHP(index), npcATk(index), inventoryW,level,...
