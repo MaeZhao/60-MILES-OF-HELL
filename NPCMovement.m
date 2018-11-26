@@ -1,9 +1,6 @@
+% The movement/AI of NPC's
 % see dependency report for input output
-% needs to happen with EVERY single level
 % 4 types of attackers: swarmer, picker,nester, tank
-% stores all rows and columns of all NPC's of npcID
-% BEFORE MUST INITIALIZE NID
-Mboard = Mboard
 [nrow, ncol] = find(Mboard==nID)
 npos = cell(1,length(nrow'));
 for i = 1: length(nrow')

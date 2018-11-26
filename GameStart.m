@@ -1,3 +1,4 @@
+% START GAME
 % see dependency report for input output
 clear
 clc

@@ -1,5 +1,5 @@
+% sets behavior of npc's
 % see dependency report for input output
-% sets behavior of npc's for each level
 if(level == 1)
     rstep = 1
     cstep =1

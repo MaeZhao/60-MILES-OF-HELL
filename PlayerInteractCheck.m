@@ -1,3 +1,4 @@
+% Controls all player interactions with gameboard
 % see dependency report for input output
 PHealthPoint
 if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
@@ -44,6 +45,10 @@ else
     if(Mboard(1, 15) == 0)
      [Mboard, Gboard] = moveplayer([1, 15], Mboard, Gboard, itemFPic(4), npcID(4), "player");
     end
+end
+if(isempty(pcol) || isempty(prow))% if player is attacked by 2 enemies at once and player is consumed
+    prow = oldposition(1)
+    pcol = oldposition(2)
 end
 if((prow ==1 && pcol == 15) && (inventoryW(3) ~= "keys"))
     td = msgbox("Hey, kid, you don't have my key. Comeback when you have my key.", "TOAD");

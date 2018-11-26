@@ -1,3 +1,4 @@
+%Initializes game board
 % see dependency report for input output
 %% Initializing GBoard
 % plays music
