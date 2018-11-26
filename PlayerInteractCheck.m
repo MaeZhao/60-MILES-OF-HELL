@@ -55,8 +55,7 @@ if(prow ==1 && pcol == 15 && inventoryW(3) == "keys")
     level = level + 1
     endscreen
 end
-% loadGB(Gboard)
-% setBehavior
+
 endscreen
 loadGB(Gboard)
 

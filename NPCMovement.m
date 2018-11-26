@@ -19,11 +19,11 @@ switch atkStyle
             nPosOld = [npos{d}(1),npos{d}(2)];
             if(moveRow == false)
                 if(npos{d}(1) > Pposition(1))
-%                     moveRow = true; % I want to alternate the row and column moves
+
                     tempNrow = npos{d}(1)-1
                     [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2),"NPC", Mboard) % if out of bounds, address does not change
                 elseif (npos{d}(1) < Pposition(1))
-%                     moveRow = true;
+
                     tempNrow = npos{d}(1)+1
                     [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2), "NPC", Mboard) % if out of bounds, address does not change
                 end
@@ -41,7 +41,6 @@ switch atkStyle
             end
                 if Mboard(npos{d}(1),npos{d}(2)) == playerID 
                     npcAttack %attacks player
-%                     [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
                     
                 end
@@ -60,7 +59,6 @@ switch atkStyle
             if((abs(npos{d}(1)-Pposition(1)) == 1 && npos{d}(2)== Pposition(2))...
                     || (abs(npos{d}(2)-Pposition(2)) == 1 && npos{d}(1)== Pposition(1)))
                 npcAttack
-%                 [Mboard, Gboard] = moveplayer([npos{d}(1),npos{d}(2)], Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
                 [Mboard, Gboard] = deleteOldPos(npos{d},Mboard, Gboard, grass);
             end
         end
@@ -98,7 +96,7 @@ switch atkStyle
                 %             IF ROW AND COL DID NOT MOVE: so all edge npcs or npcs with
                 %             something in its way (that isn't the player)
             else
-                %             if(((tempNrow == npos{d}(1))||( tempNcol == npos{d}(1)) || Mboard(npos{d}(1),npos{d}(2)) ~= playerID))
+
                 % sets the movement scope(range) for npc's on edge rows and
                 % columns
                 % THIS IS SETS VALUES FOR EDGE NPC's
@@ -124,11 +122,6 @@ switch atkStyle
                 [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
             end
             [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)                
-%             if Mboard(npos{d}(1),npos{d}(2)) == playerID && ATTACK == false
-%                 npcAttack %attacks player
-%                 [Mboard, Gboard] = moveplayer(nPosOld, Mboard, Gboard, npic, nID); %use moveplayer to move NPCS
-%                 [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
-%             end
             if((npos{d}(1)~= nPosOld(1) || npos{d}(2)~=nPosOld(2)) && Mboard(npos{d}(1), npos{d}(2)) == 0)
                     [Mboard, Gboard] = moveplayer(npos{d}, Mboard, Gboard, npic, nID, "NPC"); %use moveplayer to move NPCS
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
