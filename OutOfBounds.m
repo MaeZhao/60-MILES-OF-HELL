@@ -1,5 +1,5 @@
 function [prow,pcol] = OutOfBounds(tprow,tpcol,oldposition1,oldposition2, type, mboard)
-%OUTOFBOUNDS check's if NPC or player is out of bounds
+%OUTOFBOUNDS: checks if NPC or player is out of bounds
 %   case player only checks if out of bounds
 %   case "NPC" checks if out of bounds and if there is overlap
 switch type

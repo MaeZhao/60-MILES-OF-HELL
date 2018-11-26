@@ -1,5 +1,5 @@
 function [Mboard, Gboard]=deleteOldPos(oldPosition, mboard, gboard, grass)
-% Deletes old position of items/players
+% DELETEOLDPOS: deletes old position of items/players
 if(mboard(oldPosition(1),oldPosition(2)) ~= 0)
     mboard(oldPosition(1),oldPosition(2))= 0;
     gboard{oldPosition(1), oldPosition(2)} = grass;

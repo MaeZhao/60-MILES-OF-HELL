@@ -1,8 +1,7 @@
 function [Mboard, Gboard]= moveplayer (Pposition, mboard, gboard, player, playerID, type)
-%MOVEPLAYER moves player OR NPC's one square on map
-%MUST input grass, and player (which are png files) to be able to change
-%Gboard visualy
-% must output Mboard and Gboard
+%MOVEPLAYER: moves player OR NPC's one square on map
+%   Must input grass, and player (which are png files) to be able to change
+%   Gboard visualy
 if(type== "player")
 [oldposition1,oldposition2] = find(mboard==playerID)
 [Pposition(1), Pposition(2)] = OutOfBounds(Pposition(1), Pposition(2),oldposition1,oldposition2, type , mboard)

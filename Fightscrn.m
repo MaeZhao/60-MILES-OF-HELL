@@ -1,7 +1,7 @@
 function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level,...
     npcList,itemListW, itemWhit, npcHP,npcATk)
-
-weap = "nothing"
+%FIGHTSCRN: generates the fight screen the players see
+weap = "nothing" % first choices are to fight of flee
 button{1} = ['fight'];
 button{2} = ['flee'];
 fightscreen = menu(strcat("A ", NPCname," approaches! It has ",...
@@ -19,8 +19,7 @@ if (fightscreen == 1)
     end
 end
     weaponS = menu('Pick a Weapon. PLEASE DO NOT SELECT EMPTY BUTTONS', wbutton);
-    % WE NEED TO HAVE included other levels
-    if(level == 1)
+    if(level == 1) % the switch cases are button for the attack choices
         switch weaponS
             case 1
                 weap = "hands"
@@ -56,10 +55,10 @@ end
         end
     end
 
-if( weap == "nothing")
+if( weap == "nothing") % only is applicable if you flee
     PHealthPoint = PlayerHP + randi([-5,0]);
     menu(strcat("You fled. Player HP is: ", num2str(PHealthPoint)), 'OK')
-else
+else % otherwise this is displayed:
     menu(strcat("You attacked with ", weap, ". Player HP is: ", num2str(PHealthPoint)), 'OK')
 end
 

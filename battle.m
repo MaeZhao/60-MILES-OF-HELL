@@ -1,6 +1,6 @@
 function [PlayerHP] = battle(PlayerHit, NPCHit,NPCHP, Playerhp)
-%BATTLE Summary of this function goes here
-%   Battles until someone dies
+%BATTLE: exchanges -HP until either the player or the NPC's health reaches
+% 0
 while(NPCHP > 0 && Playerhp > 0)
     NPCHP = NPCHP + PlayerHit;
     if NPCHP <= 0

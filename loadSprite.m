@@ -1,7 +1,7 @@
 function [itemPicList] = loadSprite(itemList,type, level)
-% creates the sprite picture list
-%   needs the names of all the items and the type (character W, F, or N)
-%   of item it is
+% LOADSPRITE: creates the sprite picture list
+%   Uses the item type from ITEM TYPE (character W, F, or N)
+%   to determine the location of it's corresponding picture
 if(type == 'W')
     itemPicList = cell(1, size(itemList,2))
     for h=1:length(itemList)
