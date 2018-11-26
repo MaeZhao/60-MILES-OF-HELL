@@ -1,3 +1,4 @@
+% see dependency report for input output
 %% Initializing GBoard
 % plays music
 [y,f] = audioread('rainforest_ambience-GlorySunz.wav');
