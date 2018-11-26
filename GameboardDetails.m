@@ -36,5 +36,8 @@ if(level == 1)
     uiwait(l1mission);
     l1mission2 = msgbox("Bring the Mega Toad on the upper left his key.", "Mission")
     uiwait(l1mission2);
+    l1mission3 = msgbox("Use the arrow keys to move and to check weapons inventory click 'i'", "Directions" )
+    uiwait(l1mission3);
+    
 end
 PlayerMovement
