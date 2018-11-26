@@ -1,3 +1,4 @@
+% see dependency report for input output
 function [Gboard, Mboard] = place(mboard, gboard, ItemID, ItemPic, Itemfreq, npcType)
 % PLACE: places the NPC/items on the board randomly
 %   NPC's can be placed by type.
