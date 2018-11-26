@@ -1,3 +1,4 @@
+% see dependency report for input output
 function [Mboard, Gboard]=deleteOldPos(oldPosition, mboard, gboard, grass)
 % DELETEOLDPOS: deletes old position of items/players
 if(mboard(oldPosition(1),oldPosition(2)) ~= 0)
