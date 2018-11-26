@@ -78,7 +78,7 @@ while ed == false
                 HPTimer
                 continue
             case 'i'
-                msgbox(inventoryW,'Your Inventory', 'help', 'modal')
+                msgbox(inventoryW,'Your Inventory', 'help', 'modal') %show inventory
                 continue;
         end
     end
