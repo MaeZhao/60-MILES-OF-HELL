@@ -1,7 +1,8 @@
-% see dependency report for input output
+
 function [PHealthPoint] = Fightscrn(NPCname, PlayerHP, NPCHP, NPCHit, inventoryW, level,...
     npcList,itemListW, itemWhit, npcHP,npcATk)
 %FIGHTSCRN: generates the fight screen the players see
+% see dependency report for input output
 weap = "nothing"; % first choices are to fight of flee
 button{1} = ['fight'];
 button{2} = ['flee'];
