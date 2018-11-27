@@ -1,13 +1,13 @@
 % The movement/AI of NPC's
 % see dependency report for input output
 % 4 types of attackers: swarmer, picker,nester, tank
-[nrow, ncol] = find(Mboard==nID)
+[nrow, ncol] = find(Mboard==nID);
 npos = cell(1,length(nrow'));
 for i = 1: length(nrow')
     npos{i} = [nrow(i), ncol(i)];
 end
 % finds npcID's corresponding picture
-npic = itemNPCPic{1,npcID==nID}
+npic = itemNPCPic{1,npcID==nID};
 % Now atkStyle:
 switch atkStyle
     case "swarmer" % hornets
@@ -18,27 +18,27 @@ switch atkStyle
             if(moveRow == false)
                 if(npos{d}(1) > Pposition(1))
 
-                    tempNrow = npos{d}(1)-1
-                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2),"NPC", Mboard) % if out of bounds, address does not change
+                    tempNrow = npos{d}(1)-1;
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2),"NPC", Mboard); % if out of bounds, address does not change
                 elseif (npos{d}(1) < Pposition(1))
 
-                    tempNrow = npos{d}(1)+1
-                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2), "NPC", Mboard) % if out of bounds, address does not change
+                    tempNrow = npos{d}(1)+1;
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,npos{d}(2),npos{d}(1),npos{d}(2), "NPC", Mboard); % if out of bounds, address does not change
                 end
                 % Moves col
             else
                 if (npos{d}(2) > Pposition(2) && moveRow == true)
                     moveRow = false;
-                    tempNcol = npos{d}(2)-1
-                    [npos{d}(1),npos{d}(2)] = OutOfBounds(npos{d}(1),tempNcol,npos{d}(1),npos{d}(2), "NPC", Mboard) % if out of bounds, address does not change
+                    tempNcol = npos{d}(2)-1;
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(npos{d}(1),tempNcol,npos{d}(1),npos{d}(2), "NPC", Mboard); % if out of bounds, address does not change
                 elseif (npos{d}(2) < Pposition(2)&& moveRow == true)
                     moveRow = false;
-                    tempNcol = npos{d}(1)+1
-                    [npos{d}(1),npos{d}(2)] = OutOfBounds(npos{d}(1),tempNcol,npos{d}(1),npos{d}(2), "NPC", Mboard)% if out of bounds, address does not change
+                    tempNcol = npos{d}(1)+1;
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(npos{d}(1),tempNcol,npos{d}(1),npos{d}(2), "NPC", Mboard);% if out of bounds, address does not change
                 end
             end
-                if Mboard(npos{d}(1),npos{d}(2)) == playerID 
-                    npcAttack %attacks player
+                if Mboard(npos{d}(1),npos{d}(2)) == playerID
+                    npcAttack;%attacks player
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
                     
                 end
@@ -61,8 +61,8 @@ switch atkStyle
         end
     case "nester" %stays in relatively the same positions
         for d = 1: length(npos)
-            tempNrow = npos{d}(1)
-            tempNcol = npos{d}(2)
+            tempNrow = npos{d}(1);
+            tempNcol = npos{d}(2);
             nPosOld = [npos{d}(1), npos{d}(2)];
             % NON EDGE ROW AND COL NPC's
             if((tempNrow<10 && tempNrow>1) && (tempNcol<15 && tempNcol>1))
@@ -73,10 +73,10 @@ switch atkStyle
                     else % movement of row
                         rstep = 1;
                         tempNrow = npos{d}(1)+rstep;
-                        [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
+                        [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard);
                     end
-                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
-                    moveRow = true
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard);
+                    moveRow = true;
                 end
                 if(moveRow == true) % Moves col
                     if(npos{d}(2) >= 1 && cstep == 1)
@@ -86,8 +86,8 @@ switch atkStyle
                         cstep = 1;
                         tempNcol = npos{d}(2)+cstep;
                     end
-                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
-                    moveRow = false
+                    [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard);
+                    moveRow = false;
                 end
                 %             end
                 %             IF ROW AND COL DID NOT MOVE: so all edge npcs or npcs with
@@ -105,7 +105,7 @@ switch atkStyle
                         rstep = 1;
                        tempNrow = npos{d}(1)+rstep;
                     end
-                    moveRow = true
+                    moveRow = true;
                 elseif (tempNcol == 15 || tempNcol == 1)
                     if(tempNcol==1)
                         cstep = 1;
@@ -114,11 +114,11 @@ switch atkStyle
                         cstep = -1;
                         tempNcol = npos{d}(2)+cstep;
                     end
-                    moveRow = false
+                    moveRow = false;
                 end
-                [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)
+                [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard);
             end
-            [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard)                
+            [npos{d}(1),npos{d}(2)] = OutOfBounds(tempNrow,tempNcol, nPosOld(1),nPosOld(2),"NPC", Mboard);                
             if((npos{d}(1)~= nPosOld(1) || npos{d}(2)~=nPosOld(2)) && Mboard(npos{d}(1), npos{d}(2)) == 0)
                     [Mboard, Gboard] = moveplayer(npos{d}, Mboard, Gboard, npic, nID, "NPC"); %use moveplayer to move NPCS
                     [Mboard, Gboard] = deleteOldPos(nPosOld,Mboard, Gboard, grass);
