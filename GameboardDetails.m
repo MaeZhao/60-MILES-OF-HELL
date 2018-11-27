@@ -6,7 +6,7 @@
 forest = audioplayer(y,f);
 forest.play;
 % Creates the board
-grass = imread('All_Sprites_PNG\grass_texture.png');
+grass = imread('All_Sprites_PNG/grass_texture.png');
 Gboard = cell(10,15);
 for r = 1 :10
     for c = 1:15
