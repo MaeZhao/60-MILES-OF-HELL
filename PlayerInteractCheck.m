@@ -1,6 +1,6 @@
 % Controls all player interactions with gameboard
 % see dependency report for input output
-PHealthPoint
+PHealthPoint;
 if(ptype=='N' && Mboard(prow, pcol)~= 0 && Mboard(prow,pcol) ~= playerID)
     loadGB(Gboard)
     if (npcType(npcID==Mboard(prow,pcol)) == "boss")
